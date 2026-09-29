@@ -1,0 +1,13 @@
+Taak: herschrijf de onderstaande openingstekst van de stap "{titel}" zodat de
+situatie aansluit bij de leefwereld van de gebruiker. Maak de openingsvraag
+persoonlijk en concreet voor iemand in deze sector of rol. Behoud alle cijfers
+en feitelijke beweringen letterlijk. Iets korter dan het origineel mag.
+
+Opmaak (Markdown, gericht op snel scannen):
+- Begin met één vetgedrukte kernzin of -vraag die meteen raakt.
+- Daarna 2 tot 4 korte bullets; zet per bullet het sleutelbegrip of cijfer in vet.
+- Korte zinnen, geen lange alinea's.
+- Sluit af met één korte zin op een eigen regel die naar de rest van de module leidt.
+
+Originele tekst:
+{context}

@@ -1,0 +1,190 @@
+# Module 2 — Welke data is gevoelig?
+# Bron: "De Gevaren van het Delen van Data met AI-tools" (PWO Sustainable AI), hfst. 3
+
+- module: 2
+  stap: 1
+  type: activeren
+  titel: "Wat passeert er op jouw scherm?"
+  leerdoel: "Je kan inschatten welke data in jouw werkcontext circuleert"
+  niveau: "ethisch handelen"
+  image: "m2-1.png"
+  content: ""
+  context: >
+    Sta even stil bij een gewone werkdag. Welke informatie passeert er allemaal
+    op jouw scherm? Mails met namen en telefoonnummers, documenten met
+    klantgegevens, misschien een contract of een intern rapport. Niet alle data
+    is gelijk: sommige informatie is wettelijk beschermd, andere informatie is
+    strategisch waardevol voor je organisatie. In deze module leer je gevoelige
+    data herkennen — van persoonsgegevens onder de AVG tot bedrijfsgeheimen en
+    multimodale data zoals foto's en spraakopnames. Want je kan pas bewust
+    kiezen wat je met een AI-tool deelt, als je weet wat gevoelig is.
+
+- module: 2
+  stap: 2
+  type: kern
+  titel: "Persoonsgegevens volgens de AVG"
+  leerdoel: "Je kan uitleggen wat persoonsgegevens zijn volgens de AVG"
+  niveau: "kennen & begrijpen"
+  image: "m2-2.png"
+  content: |
+    <div class="slide-content">
+        <ul>
+            <li><strong>Namen</strong>, adressen, e-mailadressen, telefoonnummers</li>
+            <li><strong>IP-adressen</strong> en online identificatoren</li>
+            <li><strong>Locatiegegevens</strong> en financiële gegevens</li>
+        </ul>
+    </div>
+    <div class="slide-highlight">
+        De AVG/GDPR definieert persoonsgegevens als <strong>alle informatie die betrekking heeft
+        op een geïdentificeerde of identificeerbare natuurlijke persoon</strong>.
+    </div>
+  context: >
+    De Algemene Verordening Gegevensbescherming (AVG, internationaal GDPR)
+    definieert persoonsgegevens als alle informatie die betrekking heeft op een
+    geïdentificeerde of identificeerbare natuurlijke persoon. Dat is breder dan
+    veel mensen denken. Het gaat om namen, adressen, e-mailadressen en
+    telefoonnummers, maar ook om IP-adressen, locatiegegevens, financiële
+    gegevens en online identificatoren. Zodra informatie naar een persoon te
+    herleiden is, valt die onder de AVG. Een e-mail die je in een AI-tool
+    plakt om te laten herschrijven, bevat dus al snel persoonsgegevens: een
+    naam in de aanhef is genoeg.
+
+- module: 2
+  stap: 3
+  type: verdieping
+  titel: "Bijzondere categorieën en bedrijfsgevoelige informatie"
+  leerdoel: "Je kan bijzondere categorieën herkennen en uitleggen waarom die extra beschermd zijn"
+  niveau: "kennen & begrijpen"
+  image: "m2-3.png"
+  content: |
+    <div class="slide-columns">
+        <div class="slide-col-red">
+            <h4>⚕️ Bijzondere persoonsgegevens</h4>
+            <ul>
+                <li>Ras of etnische afkomst</li>
+                <li>Politieke opvattingen</li>
+                <li>Religieuze overtuigingen</li>
+                <li>Lidmaatschap van een vakbond</li>
+                <li>Genetische en biometrische gegevens</li>
+                <li>Gezondheidsgegevens</li>
+                <li>Seksuele geaardheid</li>
+            </ul>
+        </div>
+        <div class="slide-col-red">
+            <h4>🏢 Bedrijfsgevoelig</h4>
+            <ul>
+                <li>Broncode</li>
+                <li>Strategische plannen</li>
+                <li>Financiële rapporten</li>
+                <li>Contracten en klantenlijsten</li>
+                <li>Beroepsgeheim (advocaten, artsen, notarissen, ambtenaren)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide-warning">
+        ⚠️ De verwerking van bijzondere persoonsgegevens is <strong>in principe verboden</strong>,
+        tenzij een specifieke uitzondering van toepassing is.
+    </div>
+  context: >
+    Binnen de persoonsgegevens is er een categorie die extra bescherming
+    geniet: de bijzondere categorieën. Het gaat om gegevens over ras of
+    etnische afkomst, politieke opvattingen, religieuze overtuigingen,
+    lidmaatschap van een vakbond, genetische en biometrische gegevens,
+    gezondheidsgegevens en seksuele geaardheid. De verwerking van deze data is
+    in principe verboden, tenzij een specifieke uitzondering van toepassing
+    is. Daarnaast is er informatie die niet wettelijk beschermd is maar wel
+    strategisch waardevol: broncode, strategische plannen, financiële
+    rapporten, contracten, klantenlijsten en prijsstrategieën. En wie onder
+    het beroepsgeheim valt — advocaten, artsen, notarissen, ambtenaren —
+    draagt nog een extra verantwoordelijkheid: dossierinformatie delen met een
+    AI-tool kan een schending van dat beroepsgeheim zijn.
+
+- module: 2
+  stap: 4
+  type: toepassing
+  titel: "Ook beeld en geluid zijn data"
+  leerdoel: "Je kan beoordelen of concrete data (ook beeld, audio, video) veilig is om in te voeren"
+  niveau: "evalueren & creëren"
+  image: "m2-4.png"
+  content: |
+    <div class="flow-steps">
+        <div class="flow-step">📝 Tekst</div>
+        <div class="flow-step">📷 Afbeeldingen</div>
+        <div class="flow-step">🎙️ Audio</div>
+        <div class="flow-step">🎬 Video</div>
+    </div>
+    <div class="slide-warning">
+        ⚠️ Al deze vormen van data worden met de AI-provider gedeeld wanneer je ze uploadt.
+    </div>
+  context: >
+    Moderne AI-tools verwerken niet alleen tekst, maar ook afbeeldingen, audio
+    en video. Een foto van een whiteboard na een vergadering, een spraakopname
+    van een klantgesprek of een schermopname met een dashboard vol cijfers:
+    het zijn allemaal vormen van data die met de AI-provider worden gedeeld
+    zodra je ze uploadt. En ze bevatten evengoed persoonsgegevens en interne
+    informatie als een getypte tekst. Probeer het zelf in het chatvenster: de
+    AI-coach legt je een situatie voor.
+  interactie: >
+    Leg de gebruiker dit scenario voor, gesitueerd in zijn of haar sector of
+    rol: na een brainstorm wil iemand een foto van het volgeschreven whiteboard
+    uploaden naar een AI-tool om er nette notulen van te laten maken. Op het
+    whiteboard staan namen van klanten en enkele cijfers uit een lopende
+    offerte. Vraag: is dit gevoelige data, en zou je de foto uploaden? Een goed
+    antwoord herkent dat de foto persoonsgegevens (klantnamen) en
+    bedrijfsgevoelige informatie (offertecijfers) bevat, en dat multimodale
+    data even gevoelig is als tekst; veilig alternatief: de gevoelige
+    elementen eerst verwijderen of onleesbaar maken, of een goedgekeurde tool
+    gebruiken. Geef feedback volgens het vaste patroon en laat bij een
+    onvolledig antwoord opnieuw proberen met een hint.
+
+- module: 2
+  stap: 5
+  type: quiz_verankering
+  titel: "Wat onthoud je?"
+  leerdoel: "Je kan gevoelige datacategorieën correct herkennen"
+  niveau: "kennen & begrijpen"
+  image: "m2-5.png"
+  content: ""
+  quiz:
+    - vraag: "Welke van deze zijn persoonsgegevens?"
+      opties:
+        - "Een naam"
+        - "Een IP-adres"
+        - "Een e-mailadres"
+        - "Alle drie"
+      correct: 3
+      feedback_basis: >
+        De AVG definieert persoonsgegevens als alle informatie over een
+        geïdentificeerde of identificeerbare persoon. Naam, IP-adres en
+        e-mailadres vallen er alle drie onder — ook online identificatoren
+        zijn persoonsgegevens.
+    - vraag: "Welke gegevens zijn bijzondere persoonsgegevens?"
+      opties:
+        - "Een postcode"
+        - "Gezondheidsgegevens"
+        - "Een voornaam"
+        - "Een gebruikersnaam"
+      correct: 1
+      feedback_basis: >
+        Gezondheidsgegevens behoren tot de bijzondere categorieën van
+        persoonsgegevens, samen met onder meer gegevens over etnische afkomst,
+        politieke opvattingen, religie en biometrie. De verwerking ervan is in
+        principe verboden, tenzij een specifieke uitzondering geldt.
+    - vraag: "Kan een spraakopname of foto gevoelige data bevatten?"
+      opties:
+        - "Nee, alleen tekst is gevoelig"
+        - "Ja, ook beeld en audio kunnen persoonsgegevens en interne info bevatten"
+      correct: 1
+      feedback_basis: >
+        Multimodale data — foto's, audio, video, schermopnames — bevat evengoed
+        persoonsgegevens en interne informatie. Een whiteboardfoto met
+        klantnamen of een opgenomen klantgesprek wordt volledig met de
+        AI-provider gedeeld bij het uploaden.
+  context: >
+    Samengevat: persoonsgegevens zijn alle informatie die naar een persoon te
+    herleiden is, en de bijzondere categorieën — zoals gezondheidsgegevens —
+    genieten extra bescherming. Daarnaast is er bedrijfsgevoelige informatie
+    en het beroepsgeheim. En gevoelige data zit niet alleen in tekst: ook
+    foto's, audio en video tellen mee. De takeaway van deze module: gevoelig
+    zit niet alleen in tekst — ook in wat je fotografeert, opneemt of deelt
+    als scherm.

@@ -1,0 +1,17 @@
+Deze stap is een toepassingsoefening. Jij neemt het initiatief.
+
+Scenario-instructie:
+{interactie}
+
+Werkwijze:
+1. Open het gesprek met het scenario, gesitueerd in de context van de gebruiker.
+   Stel één duidelijke vraag.
+2. Wacht op het antwoord van de gebruiker.
+3. Geef feedback volgens dit vaste patroon:
+   - Bij een juist of grotendeels juist antwoord: bevestig kort, leg uit waarom
+     het klopt, en maak de link met de praktijk van de gebruiker.
+   - Bij een fout of onvolledig antwoord: corrigeer rustig, leg eenvoudig uit,
+     geef een concreet voorbeeld, en nodig uit om opnieuw te proberen met een
+     kleine hint.
+4. Rond af zodra de kern van het leerdoel ("{leerdoel}") geraakt is, met één
+   zin die samenvat wat de gebruiker hieruit meeneemt.

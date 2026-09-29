@@ -1,0 +1,15 @@
+Taak: herschrijf de onderstaande verdiepingstekst van de stap "{titel}". Kies
+of kleur het voorbeeld zodat het relevant is voor de sector en rol van de
+gebruiker; gebruik daarvoor uitsluitend het sectormateriaal hierboven en de
+inhoud van de originele tekst. Alle feiten, cijfers, namen van zaken en
+uitspraken blijven letterlijk behouden.
+
+Opmaak (Markdown, gericht op snel scannen):
+- Begin met één vetgedrukte kernzin die de essentie van het voorbeeld geeft.
+- Werk de rest uit in 3 tot 5 korte bullets of heel korte alinea's; zet
+  sleutelbegrippen, cijfers en namen in vet.
+- Korte zinnen, geen lange alinea's.
+- Sluit af met één korte slotzin op een eigen regel.
+
+Originele tekst:
+{context}

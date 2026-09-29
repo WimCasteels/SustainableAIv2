@@ -1,0 +1,188 @@
+- title: "Hoe AI-tools omgaan met jouw data"
+  subtitle: "Een overzicht van risico's en bescherming"
+  image: "afb1-1.png"
+  content: ""
+  context: >
+    AI-tools zoals ChatGPT, Claude en Copilot zijn in korte tijd onmisbaar geworden
+    op de werkvloer. We gebruiken ze om teksten te schrijven, data te analyseren en
+    complexe problemen op te lossen. Maar wat gebeurt er eigenlijk met alles wat we
+    invoeren? Deze presentatie geeft je een helder overzicht van de risico's — en hoe
+    je je ertegen kunt beschermen.
+
+- title: "Wat gebeurt er met ingevoerde data?"
+  subtitle: ""
+  image: "afb1-2.png"
+  content: |
+    <div class="flow-steps">
+        <div class="flow-step">📝 Invoer</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">📁 Logbestanden</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">💬 Geschiedenis</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">🧠 Modeltraining</div>
+    </div>
+    <div class="slide-warning">
+        ⚠️ OpenAI waarschuwt gebruikers expliciet om geen gevoelige informatie te delen,
+        omdat het bedrijf "niet in staat is specifieke prompts te verwijderen" uit het systeem.
+    </div>
+  context: >
+    Wanneer je een prompt typt of een bestand uploadt naar een AI-tool, stopt het verhaal
+    niet bij het antwoord dat je terugkrijgt. Achter de schermen doorloopt je data drie
+    stappen: de invoer wordt opgeslagen in logbestanden, je conversatiegeschiedenis wordt
+    bewaard, en je data kan worden gebruikt om de AI-modellen te verbeteren en te trainen.
+    Dit is geen verborgen praktijk — wat erin gaat, krijg je niet zomaar terug.
+
+- title: "Gebruik van data voor modeltraining"
+  subtitle: ""
+  image: "afb1-3.png"
+  content: |
+    <div class="slide-content">
+        <ul>
+            <li>Consumentenversies gebruiken standaard je invoer om modellen te trainen</li>
+            <li>Bedrijfsinformatie, persoonsgegevens of IP kan onderdeel worden van het model</li>
+            <li>Die informatie kan later opduiken in antwoorden aan andere gebruikers</li>
+        </ul>
+    </div>
+    <div class="slide-highlight">
+        🔬 <strong>Stanford-onderzoek:</strong> GPT-2 bleek in staat om rijksregisternummers,
+        namen en e-mailadressen uit zijn trainingsdata te reproduceren wanneer het model op
+        de juiste manier werd bevraagd.
+    </div>
+  context: >
+    Veel AI-providers gebruiken standaard de invoer van consumentenversies om hun modellen
+    te trainen. Dat betekent dat bedrijfsinformatie, persoonsgegevens of intellectueel
+    eigendom dat je invoert, onderdeel kan worden van het "geheugen" van het model. Dit
+    risico is niet alleen theoretisch — onderzoekers van Stanford toonden aan dat GPT-2
+    gevoelige gegevens uit zijn trainingsdata kon reproduceren. Het mechanisme bestaat, en
+    dat maakt bewustzijn essentieel.
+
+- title: "Menselijk toezicht bij AI-providers"
+  subtitle: ""
+  image: "afb1-4.png"
+  content: |
+    <div style="text-align: center; font-size: 3rem; margin: 1rem 0;">👁️</div>
+    <div style="text-align: center; font-size: 1.2rem; color: #e0e7ff; font-weight: 600; margin-bottom: 1.5rem;">
+        Menselijke medewerkers kunnen je conversaties inzien
+    </div>
+    <div class="slide-content">
+        <ul>
+            <li><strong>Kwaliteitscontrole</strong> — beoordelen of het model correct antwoordt</li>
+            <li><strong>Veiligheidstoezicht</strong> — controleren op misbruik of schadelijke output</li>
+            <li><strong>Systeemtraining</strong> — handmatig feedback geven om het model te verbeteren</li>
+        </ul>
+    </div>
+  context: >
+    Naast geautomatiseerde verwerking kunnen medewerkers van AI-providers ook handmatig
+    conversaties bekijken. Dit gebeurt voor kwaliteitscontrole, veiligheidstoezicht en het
+    trainen van het systeem. Concreet betekent dit dat wanneer je een vertrouwelijk document
+    uploadt of een vraag stelt over een gevoelig intern project, menselijke ogen potentieel
+    toegang hebben tot die informatie. Het gaat niet om massale surveillance, maar het is
+    een realiteit om rekening mee te houden.
+
+- title: "Waar staan de servers?"
+  subtitle: ""
+  image: "afb1-5.png"
+  content: |
+    <div style="text-align: center; font-size: 1.5rem; margin: 1rem 0;">
+        🇺🇸 &nbsp;←&nbsp; data &nbsp;→&nbsp; 🇪🇺
+    </div>
+    <div class="slide-highlight">
+        <strong>Schrems II</strong> — Het Europees Hof van Justitie oordeelde dat datatransfers
+        naar de VS aan strenge voorwaarden moeten voldoen.
+    </div>
+    <div class="slide-warning">
+        <strong>CLOUD Act</strong> — De Amerikaanse overheid heeft potentieel toegang tot data
+        op servers van Amerikaanse bedrijven, ongeacht waar die servers fysiek staan.
+    </div>
+  context: >
+    De grote AI-providers — OpenAI, Google, Anthropic — zijn Amerikaanse bedrijven en
+    verwerken data voornamelijk op servers in de Verenigde Staten. De Schrems II-uitspraak
+    maakte duidelijk dat datatransfers naar de VS aan strenge voorwaarden moeten voldoen.
+    Daarnaast geeft de CLOUD Act de Amerikaanse overheid potentieel toegang tot data van
+    Amerikaanse bedrijven, ongeacht serverlocatie. Zelfs een belofte van Europese opslag
+    maakt het juridische plaatje dus niet eenvoudig.
+
+- title: "Consumer vs. Enterprise"
+  subtitle: "Er is een wereld van verschil"
+  image: "afb1-6.png"
+  content: |
+    <div class="slide-columns">
+        <div class="slide-col-red">
+            <h4>❌ Consumentenversie</h4>
+            <ul>
+                <li>Data wordt standaard gebruikt voor training</li>
+                <li>Geen dataverwerkingsovereenkomst (DPA)</li>
+                <li>Beperkte controle over dataretentie</li>
+                <li>Geen garantie over verwerkingslocatie</li>
+            </ul>
+        </div>
+        <div class="slide-col-green">
+            <h4>✅ Enterprise-versie</h4>
+            <ul>
+                <li>Opt-out voor gebruik bij training</li>
+                <li>Formele DPA beschikbaar</li>
+                <li>Data-isolatie en versleuteling</li>
+                <li>EU-verwerking soms mogelijk</li>
+                <li>Auditlogboeken en toegangscontrole</li>
+            </ul>
+        </div>
+    </div>
+  context: >
+    Het verschil tussen de gratis consumentenversie en de betaalde enterprise-versie is
+    fundamenteel. Bij de consumentenversie wordt je data vaak standaard gebruikt voor
+    training, zonder DPA of controle over retentie. De enterprise-versie biedt een opt-out
+    voor training, een formele DPA, data-isolatie, soms EU-verwerking, en strengere
+    toegangscontroles. Wie bedrijfsdata wil beschermen, kan niet om dit onderscheid heen.
+
+- title: "Shadow AI"
+  subtitle: "Het onzichtbare risico"
+  image: "afb1-7.png"
+  content: |
+    <div class="slide-highlight">
+        <strong>Shadow AI</strong> = het gebruik van AI-tools door medewerkers zonder goedkeuring,
+        zichtbaarheid of toezicht van de IT-afdeling.
+    </div>
+    <div class="slide-content">
+        <ul>
+            <li>Vergelijkbaar met "shadow IT" — maar specifiek voor generatieve AI</li>
+            <li>Medewerkers registreren zich met persoonlijke e-mailadressen</li>
+            <li>Goede intenties: sneller werken, betere antwoorden, complexe taken vereenvoudigen</li>
+            <li>Gevolg: bedrijfsdata belandt bij AI-providers zonder contractuele bescherming</li>
+        </ul>
+    </div>
+  context: >
+    Shadow AI verwijst naar het gebruik van AI-tools zonder goedkeuring van IT. Medewerkers
+    registreren zich met persoonlijke accounts voor ChatGPT, Claude of andere diensten —
+    bijna altijd met goede intenties. Maar het gevolg is dat bedrijfsdata via de
+    consumentenversie bij een AI-provider terechtkomt, zonder enige contractuele bescherming.
+    De organisatie heeft geen zicht op wat er gedeeld wordt en geen controle over hoe het
+    verwerkt wordt.
+
+- title: "Key takeaways"
+  subtitle: ""
+  image: "afb1-8.png"
+  content: |
+    <div class="takeaway-grid">
+        <div class="takeaway-item">
+            <div class="takeaway-number">01</div>
+            AI-tools slaan je data op en kunnen deze gebruiken voor modeltraining
+        </div>
+        <div class="takeaway-item">
+            <div class="takeaway-number">02</div>
+            Enterprise-versies bieden fundamenteel betere databescherming dan consumentenversies
+        </div>
+        <div class="takeaway-item">
+            <div class="takeaway-number">03</div>
+            Shadow AI is een reëel risico dat actief beleid vereist
+        </div>
+        <div class="takeaway-item">
+            <div class="takeaway-number">04</div>
+            Juridische kaders zoals Schrems II en de CLOUD Act maken bewuste keuzes noodzakelijk
+        </div>
+    </div>
+  context: >
+    Vier zaken om te onthouden. AI-tools zijn geen zwarte dozen — je invoer wordt opgeslagen
+    en kan worden gebruikt voor training. Het verschil tussen consumer- en enterprise-versies
+    is fundamenteel voor databescherming. Shadow AI vraagt om beleid én goede alternatieven.
+    En de juridische context maakt bewuste, onderbouwde keuzes over AI-tools noodzakelijk.

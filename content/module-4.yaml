@@ -1,0 +1,184 @@
+# Module 4 — Juridisch kader
+# Bron: "De Gevaren van het Delen van Data met AI-tools" (PWO Sustainable AI), hfst. 6
+
+- module: 4
+  stap: 1
+  type: activeren
+  titel: "AI-gebruik valt gewoon onder de wet"
+  leerdoel: "Je kan herkennen dat AI-gebruik onder bestaande wetgeving valt"
+  niveau: "kennen & begrijpen"
+  image: "m4-1.png"
+  content: |
+    <div class="slide-highlight">
+        🇮🇹 In 2023 verbood de Italiaanse toezichthouder (Garante) ChatGPT tijdelijk
+        wegens zorgen over de verwerking van persoonsgegevens.
+    </div>
+  context: >
+    Misschien voelt een AI-tool als een vrije speelruimte: je typt iets in en
+    er komt iets nuttigs uit. Maar juridisch gezien is er niets vrijblijvends
+    aan. Dat werd duidelijk in 2023, toen de Italiaanse toezichthouder Garante
+    ChatGPT tijdelijk verbood wegens zorgen over de verwerking van
+    persoonsgegevens. Het signaal aan alle organisaties: AI-gebruik valt
+    gewoon onder de bestaande privacywetgeving, en toezichthouders kijken
+    steeds strenger mee. In deze module leer je de twee belangrijkste kaders
+    kennen — de AVG en de AI Act — en wat die betekenen voor wat jij wel en
+    niet met een AI-tool deelt.
+
+- module: 4
+  stap: 2
+  type: kern
+  titel: "De AVG-kernprincipes toegepast op AI"
+  leerdoel: "Je kan de AVG-kernprincipes toepassen op AI-gebruik"
+  niveau: "toepassen"
+  image: "m4-2.png"
+  content: |
+    <div class="slide-content">
+        <ul>
+            <li><strong>Doelbinding</strong> — data alleen gebruiken voor het doel waarvoor ze verzameld is</li>
+            <li><strong>Dataminimalisatie</strong> — niet meer data verwerken dan strikt nodig</li>
+            <li><strong>Opslagbeperking</strong> — data niet langer bewaren dan nodig</li>
+            <li><strong>Verantwoordingsplicht</strong> — kunnen aantonen dat je aan de regels voldoet</li>
+        </ul>
+    </div>
+    <div class="slide-warning">
+        ⚠️ Verwerkt een AI-tool persoonsgegevens namens jouw organisatie? Dan is een
+        <strong>dataverwerkingsovereenkomst (DPA)</strong> verplicht.
+    </div>
+  context: >
+    De AVG kent een aantal kernprincipes die rechtstreeks van toepassing zijn
+    op AI-gebruik. Doelbinding: persoonsgegevens mogen alleen gebruikt worden
+    voor het doel waarvoor ze verzameld zijn — een klantgegeven in een AI-tool
+    plakken is al snel een ander doel. Dataminimalisatie: verwerk niet meer
+    data dan strikt nodig. Opslagbeperking: bewaar data niet langer dan nodig
+    — lastig bij AI-tools die invoer in logbestanden bewaren.
+    Verantwoordingsplicht: je organisatie moet kunnen aantonen dat ze aan de
+    regels voldoet. En wanneer een AI-tool persoonsgegevens verwerkt namens
+    jouw organisatie, is een dataverwerkingsovereenkomst (DPA) verplicht —
+    precies wat bij consumentenversies ontbreekt.
+
+- module: 4
+  stap: 3
+  type: verdieping
+  titel: "De AI Act: regels volgens risico"
+  leerdoel: "Je kan de risicogebaseerde aanpak van de AI Act uitleggen"
+  niveau: "kennen & begrijpen"
+  image: "m4-3.png"
+  content: |
+    <div class="flow-steps">
+        <div class="flow-step">⛔ Onaanvaardbaar</div>
+        <div class="flow-step">🔴 Hoog</div>
+        <div class="flow-step">🟡 Beperkt</div>
+        <div class="flow-step">🟢 Minimaal</div>
+    </div>
+    <div class="slide-highlight">
+        De AI Act legt bovendien een <strong>transparantieplicht</strong> op voor
+        general-purpose AI, zoals de grote taalmodellen.
+    </div>
+  context: >
+    Naast de AVG is er sinds kort de Europese AI Act, de eerste brede AI-wet
+    ter wereld. De AI Act werkt risicogebaseerd en deelt AI-systemen in vier
+    niveaus in. Onaanvaardbaar risico: verboden toepassingen, zoals sociale
+    scoring. Hoog risico: strenge eisen, bijvoorbeeld AI bij sollicitaties of
+    kredietbeoordeling. Beperkt risico: transparantieverplichtingen — de
+    gebruiker moet weten dat hij met AI te maken heeft. Minimaal risico:
+    geen extra verplichtingen. Voor general-purpose AI, zoals de grote
+    taalmodellen achter de bekende chatbots, geldt een transparantieplicht.
+    Voor jou als gebruiker betekent dit vooral: hoe gevoeliger de toepassing,
+    hoe strenger de regels die erop van toepassing zijn.
+
+- module: 4
+  stap: 4
+  type: toepassing
+  titel: "Het recht op vergetelheid versus AI-training"
+  leerdoel: "Je kan de spanning tussen rechten van betrokkenen en AI-training beoordelen"
+  niveau: "evalueren & creëren"
+  image: "m4-4.png"
+  content: |
+    <div class="slide-columns">
+        <div class="slide-col-green">
+            <h4>📜 Rechten van betrokkenen</h4>
+            <ul>
+                <li>Recht op inzage</li>
+                <li>Recht op verwijdering ("vergetelheid")</li>
+                <li>Recht op uitleg bij geautomatiseerde beslissingen</li>
+            </ul>
+        </div>
+        <div class="slide-col-red">
+            <h4>🧠 De realiteit van AI-modellen</h4>
+            <ul>
+                <li>Data in een getraind model is technisch nauwelijks te verwijderen</li>
+                <li>Het model is een black box: uitleg is moeilijk te geven</li>
+            </ul>
+        </div>
+    </div>
+  context: >
+    De AVG geeft burgers rechten: inzage in hun data, verwijdering ervan (het
+    recht op vergetelheid) en uitleg bij geautomatiseerde beslissingen. Maar
+    AI-modellen zetten die rechten onder spanning. Data die in een getraind
+    model is opgenomen, is technisch nauwelijks te verwijderen — je kan een
+    model niet één persoon laten vergeten. En het recht op uitleg botst met
+    het black box-karakter van grote modellen. Probeer het zelf in het
+    chatvenster: de AI-coach legt je een situatie voor.
+  interactie: >
+    Leg de gebruiker dit scenario voor, gesitueerd in zijn of haar sector of
+    rol: een klant of burger ontdekt dat zijn persoonsgegevens — via een
+    medewerker die ze in een AI-tool invoerde — mogelijk in trainingsdata zijn
+    beland, en beroept zich op het recht op vergetelheid. Vraag: wat maakt dit
+    verzoek zo moeilijk uitvoerbaar, en wat had de organisatie beter gedaan?
+    Een goed antwoord benoemt dat data in een getraind model technisch
+    nauwelijks te verwijderen is (OpenAI kan specifieke prompts niet
+    verwijderen), en dat voorkomen daarom de enige echte bescherming is:
+    persoonsgegevens niet invoeren, of alleen tools met contractuele
+    waarborgen (DPA, training-opt-out) gebruiken. Geef feedback volgens het
+    vaste patroon en laat bij een onvolledig antwoord opnieuw proberen met
+    een hint.
+
+- module: 4
+  stap: 5
+  type: quiz_verankering
+  titel: "Wat onthoud je?"
+  leerdoel: "Je kan de juridische basisregels correct toepassen en verantwoorden waarom je data wel of niet deelt"
+  niveau: "ethisch handelen"
+  image: "m4-5.png"
+  content: ""
+  quiz:
+    - vraag: "Welke wet beschermt persoonsgegevens in de EU?"
+      opties:
+        - "AI Act"
+        - "AVG/GDPR"
+        - "Auteurswet"
+      correct: 1
+      feedback_basis: >
+        De AVG (internationaal GDPR) beschermt persoonsgegevens in de EU, met
+        principes als doelbinding, dataminimalisatie en de
+        verantwoordingsplicht. De AI Act reguleert AI-systemen zelf, volgens
+        hun risiconiveau.
+    - vraag: "Hoe reguleert de AI Act AI-systemen?"
+      opties:
+        - "Per bedrijfsgrootte"
+        - "Volgens risiconiveau"
+        - "Alleen voor chatbots"
+      correct: 1
+      feedback_basis: >
+        De AI Act werkt risicogebaseerd, met vier niveaus: onaanvaardbaar
+        (verboden), hoog (strenge eisen), beperkt (transparantieplicht) en
+        minimaal risico. Voor general-purpose AI geldt een aparte
+        transparantieplicht.
+    - vraag: "Waarom staat het recht op vergetelheid op gespannen voet met AI-training?"
+      opties:
+        - "AI-providers weigeren altijd"
+        - "Data in een getraind model is technisch nauwelijks te verwijderen"
+        - "Het recht geldt niet voor AI"
+      correct: 1
+      feedback_basis: >
+        Eenmaal in een getraind model opgenomen, is data technisch nauwelijks
+        te verwijderen — een model kan niet één persoon "vergeten". Daarom is
+        voorkomen de enige echte bescherming: gevoelige data niet invoeren.
+  context: >
+    Samengevat: AI-gebruik valt onder de AVG, met doelbinding,
+    dataminimalisatie, opslagbeperking en de verantwoordingsplicht als
+    kernprincipes, en een verplichte DPA wanneer een tool persoonsgegevens
+    verwerkt namens je organisatie. De AI Act voegt daar een risicogebaseerde
+    aanpak aan toe. En het recht op vergetelheid toont de harde les: wat in
+    een model zit, krijg je er niet meer uit. De takeaway van deze module:
+    deel alleen wat strikt nodig is — en zorg dat je kan verantwoorden waarom.

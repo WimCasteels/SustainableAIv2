@@ -1,0 +1,180 @@
+# Module 1 — Hoe gaan AI-tools om met je data?
+# Referentie-implementatie volgens het schema uit modules-leerpaden-v2.md
+# Bron: "De Gevaren van het Delen van Data met AI-tools" (PWO Sustainable AI), hfst. 1-2
+
+- module: 1
+  stap: 1
+  type: activeren
+  titel: "Wat deel jij eigenlijk met AI?"
+  leerdoel: "Je kan benoemen welke data jij zelf al met AI-tools deelde"
+  niveau: "ethisch handelen"
+  image: "m1-1.png"
+  content: ""
+  context: >
+    Denk even terug aan de afgelopen week. Wat heb je in een AI-tool getypt of
+    geüpload? Een mail die je liet herschrijven, een document dat je liet
+    samenvatten, een vraag over een project? Je bent niet alleen: AI-tools zoals
+    ChatGPT, Copilot, Gemini en Claude zijn voor miljoenen mensen een vast deel
+    van de werkdag geworden. Maar uit onderzoek van Cyberhaven Labs (2026) blijkt
+    dat bijna vier op de tien interacties met AI-tools gevoelige data bevatten.
+    De gemiddelde medewerker voert dus elke paar dagen gevoelige informatie in.
+    In deze module ontdek je wat er met die invoer gebeurt zodra je op verzenden
+    drukt.
+
+- module: 1
+  stap: 2
+  type: kern
+  titel: "Wat gebeurt er met ingevoerde data?"
+  leerdoel: "Je kan de drie stappen uitleggen die je data doorloopt: opslag, geschiedenis, training"
+  niveau: "kennen & begrijpen"
+  image: "m1-2.png"
+  content: |
+    <div class="flow-steps">
+        <div class="flow-step">📝 Invoer</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">📁 Logbestanden</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">💬 Geschiedenis</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">🧠 Modeltraining</div>
+    </div>
+    <div class="slide-warning">
+        ⚠️ OpenAI waarschuwt gebruikers expliciet om geen gevoelige informatie te delen,
+        omdat het bedrijf "niet in staat is specifieke prompts te verwijderen" uit het systeem.
+    </div>
+  context: >
+    Wanneer je een prompt typt of een bestand uploadt naar een AI-tool, stopt het
+    verhaal niet bij het antwoord dat je terugkrijgt. Achter de schermen doorloopt
+    je data drie stappen. Eén: je invoer wordt opgeslagen in logbestanden. Twee:
+    je conversatiegeschiedenis wordt bewaard. Drie: je data kan worden gebruikt om
+    de AI-modellen te verbeteren en te trainen. Dit is geen verborgen praktijk,
+    maar de consequentie is groot: wat erin gaat, krijg je niet zomaar terug. Bij
+    veel AI-tools kan je ingevoerde data niet volledig laten verwijderen.
+
+- module: 1
+  stap: 3
+  type: verdieping
+  titel: "Wie kijkt er mee, en waar staat je data?"
+  leerdoel: "Je kan uitleggen dat menselijk toezicht en serverlocatie extra risicofactoren zijn"
+  niveau: "kennen & begrijpen"
+  image: "m1-3.png"
+  content: |
+    <div style="text-align: center; font-size: 1.5rem; margin: 1rem 0;">
+        👁️ &nbsp;&nbsp; 🇺🇸 &nbsp;←&nbsp; data &nbsp;→&nbsp; 🇪🇺
+    </div>
+    <div class="slide-highlight">
+        <strong>Schrems II</strong> — Het Europees Hof van Justitie oordeelde dat datatransfers
+        naar de VS aan strenge voorwaarden moeten voldoen.
+    </div>
+    <div class="slide-warning">
+        <strong>CLOUD Act</strong> — De Amerikaanse overheid heeft potentieel toegang tot data
+        op servers van Amerikaanse bedrijven, ongeacht waar die servers fysiek staan.
+    </div>
+  context: >
+    Naast geautomatiseerde verwerking kunnen medewerkers van AI-providers ook
+    handmatig conversaties bekijken. Dat gebeurt voor kwaliteitscontrole,
+    veiligheidstoezicht en het trainen van het systeem. Menselijke ogen hebben
+    dus potentieel toegang tot wat je invoert. Daarnaast speelt de locatie van
+    de servers een rol. De grote AI-providers zijn Amerikaanse bedrijven en
+    verwerken data voornamelijk op servers in de Verenigde Staten. De Schrems
+    II-uitspraak van het Europees Hof van Justitie maakte duidelijk dat zulke
+    datatransfers aan strenge voorwaarden moeten voldoen, en de Amerikaanse
+    CLOUD Act geeft de overheid daar potentieel toegang tot data van Amerikaanse
+    bedrijven, ongeacht waar die servers fysiek staan. Zelfs een belofte van
+    Europese opslag maakt het juridische plaatje dus niet eenvoudig.
+
+- module: 1
+  stap: 4
+  type: toepassing
+  titel: "Consumer of enterprise: maak de juiste keuze"
+  leerdoel: "Je kan beoordelen of een consumer- of enterprise-versie geschikt is voor een gegeven situatie"
+  niveau: "evalueren & creëren"
+  image: "m1-4.png"
+  content: |
+    <div class="slide-columns">
+        <div class="slide-col-red">
+            <h4>❌ Consumentenversie</h4>
+            <ul>
+                <li>Data wordt standaard gebruikt voor training</li>
+                <li>Geen dataverwerkingsovereenkomst (DPA)</li>
+                <li>Beperkte controle over dataretentie</li>
+                <li>Geen garantie over verwerkingslocatie</li>
+            </ul>
+        </div>
+        <div class="slide-col-green">
+            <h4>✅ Enterprise-versie</h4>
+            <ul>
+                <li>Opt-out voor gebruik bij training</li>
+                <li>Formele DPA beschikbaar</li>
+                <li>Data-isolatie en versleuteling</li>
+                <li>EU-verwerking soms mogelijk</li>
+                <li>Auditlogboeken en toegangscontrole</li>
+            </ul>
+        </div>
+    </div>
+  context: >
+    Er is een wereld van verschil tussen de gratis consumentenversie van een
+    AI-tool en de betaalde enterprise-versie. Bij de consumentenversie wordt je
+    data vaak standaard gebruikt voor training, zonder dataverwerkingsovereenkomst
+    en met weinig controle over retentie of verwerkingslocatie. De enterprise-versie
+    biedt een opt-out voor training, een formele DPA, data-isolatie, soms
+    EU-verwerking en strengere toegangscontroles. Wie bedrijfsdata wil beschermen,
+    kan niet om dit onderscheid heen. Probeer het zelf in het chatvenster: de
+    AI-coach legt je een situatie voor.
+  interactie: >
+    Leg de gebruiker dit scenario voor, gesitueerd in zijn of haar sector of rol:
+    een collega gebruikt zijn persoonlijke gratis AI-account om een intern
+    document te laten samenvatten, "want dat gaat sneller dan wachten op de
+    officiële tool". Vraag: wat is hier het probleem, en wat zou de collega beter
+    doen? Een goed antwoord benoemt dat de data via een consumentenversie zonder
+    DPA en zonder training-opt-out bij een externe partij belandt, en dat een
+    goedgekeurde (enterprise-)tool of het weglaten van gevoelige inhoud de
+    veilige weg is. Geef feedback volgens het vaste patroon en laat bij een
+    onvolledig antwoord opnieuw proberen met een hint.
+
+- module: 1
+  stap: 5
+  type: quiz_verankering
+  titel: "Wat onthoud je?"
+  leerdoel: "Je kan aantonen dat je weet wat er met ingevoerde data gebeurt"
+  niveau: "kennen & begrijpen"
+  image: "m-quiz.png"
+  content: ""
+  quiz:
+    - vraag: "Wat gebeurt er mogelijk met data die je invoert in een AI-tool?"
+      opties:
+        - "Ze wordt meteen verwijderd"
+        - "Ze wordt opgeslagen en mogelijk gebruikt voor training"
+        - "Ze blijft alleen op je toestel"
+      correct: 1
+      feedback_basis: >
+        Invoer wordt opgeslagen in logbestanden, de conversatiegeschiedenis wordt
+        bewaard, en de data kan gebruikt worden om modellen te trainen. Volledig
+        verwijderen is bij veel tools niet mogelijk.
+    - vraag: "Wie kan jouw conversaties met een AI-tool potentieel inzien?"
+      opties:
+        - "Niemand"
+        - "Alleen jijzelf"
+        - "Ook medewerkers van de AI-provider"
+      correct: 2
+      feedback_basis: >
+        Medewerkers van AI-providers kunnen conversaties handmatig bekijken voor
+        kwaliteitscontrole, veiligheidstoezicht en systeemtraining. Het gaat niet
+        om massale surveillance, maar het is een realiteit om rekening mee te houden.
+    - vraag: "Wat is het belangrijkste verschil tussen een consumenten- en een enterprise-versie?"
+      opties:
+        - "Enterprise is altijd sneller"
+        - "Enterprise biedt vaak betere databescherming"
+        - "Consumentenversies zijn veiliger"
+      correct: 1
+      feedback_basis: >
+        De enterprise-versie biedt doorgaans een opt-out voor training, een formele
+        dataverwerkingsovereenkomst, data-isolatie en strengere toegangscontroles.
+        Bij de consumentenversie ontbreken die beschermingen meestal.
+  context: >
+    Samengevat: wat je invoert in een AI-tool wordt opgeslagen, kan bekeken
+    worden door medewerkers van de provider, en kan in sommige gevallen gebruikt
+    worden om modellen te trainen. De servers staan vaak in de Verenigde Staten,
+    met de juridische gevolgen van dien. Het verschil tussen een consumenten- en
+    een enterprise-versie is daarbij fundamenteel. De takeaway van deze module:
+    behandel elke prompt als data die je uit handen geeft.

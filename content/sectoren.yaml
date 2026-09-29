@@ -1,0 +1,96 @@
+# Sectorspecifieke achtergrondkennis voor de personalisatielaag
+# Bron: "De Gevaren van het Delen van Data met AI-tools", hfst. 7
+# Gebruik: wordt als context meegegeven aan de LLM wanneer de sector van de
+# gebruiker bekend is. De LLM kiest of kleurt voorbeelden, maar vindt geen
+# nieuwe feiten of incidenten uit.
+
+- sector: zorg
+  label: "Gezondheidszorg"
+  gevoelige_data: >
+    Medische dossiers, diagnoses en patiëntgegevens behoren tot de meest
+    gevoelige categorieën data. Gezondheidsgegevens zijn bijzondere
+    persoonsgegevens onder de AVG.
+  kernrisico: >
+    Het invoeren van patiëntinformatie in een AI-tool vormt niet alleen een
+    AVG-schending, maar ook een schending van het medisch beroepsgeheim.
+  voorbeeld: >
+    Een zorginstelling die een chatbot trainde op patiëntinteractiedata, zag
+    het model vervolgens patiëntinformatie lekken in ongerelateerde gesprekken.
+
+- sector: overheid
+  label: "Overheid"
+  gevoelige_data: >
+    Burgerdata, vertrouwelijke beleidsinformatie en geclassificeerde documenten.
+  kernrisico: >
+    Het gebruik van niet-Europese AI-tools roept bijkomende vragen op over
+    digitale soevereiniteit en de bescherming van staatsgevoelige informatie.
+    Ambtenaren vallen bovendien onder het beroepsgeheim.
+  voorbeeld: >
+    De Nederlandse SyRI-zaak (Systeem Risico Indicatie) illustreerde hoe het
+    algoritmisch verwerken van burgerdata kan conflicteren met grondrechten.
+
+- sector: financieel
+  label: "Financiële sector"
+  gevoelige_data: >
+    Transactiedata, klantprofielen en marktgevoelige informatie.
+  kernrisico: >
+    Regulering zoals MiFID II, PSD2 en sectorspecifieke compliance-eisen maken
+    het gebruik van externe AI-tools extra risicovol.
+  voorbeeld: >
+    Cyberhaven rapporteert dat 4,7% van de werknemers in de financiële sector
+    bedrijfsdata invoert in AI-tools. Grote spelers als JP Morgan Chase stelden
+    beperkingen in op generatieve AI.
+
+- sector: onderwijs
+  label: "Onderwijs"
+  gevoelige_data: >
+    Gegevens van minderjarigen, een categorie die extra bescherming geniet
+    onder de AVG, plus studieresultaten en begeleidingsdossiers.
+  kernrisico: >
+    AI-gebruik door docenten of administratief personeel, bijvoorbeeld voor het
+    beoordelen van opdrachten of het genereren van rapporten, kan onbedoeld
+    leerlinggegevens blootstellen aan externe partijen.
+  voorbeeld: >
+    Een docent die leerlingenwerk met naam en al laat nakijken door een
+    AI-tool, deelt persoonsgegevens van minderjarigen met een externe provider.
+
+- sector: juridisch
+  label: "Juridische sector"
+  gevoelige_data: >
+    Dossierstukken, contracten en juridische adviezen, beschermd door een
+    strikt beroepsgeheim.
+  kernrisico: >
+    Het invoeren van dossierstukken in een AI-tool vormt een directe schending
+    van het beroepsgeheim, met tuchtrechtelijke, civielrechtelijke en
+    strafrechtelijke gevolgen.
+  voorbeeld: >
+    De orde van advocaten heeft in meerdere landen al waarschuwingen
+    uitgevaardigd over AI-gebruik in de advocatuur.
+
+- sector: it
+  label: "IT en technologie"
+  gevoelige_data: >
+    Broncode, architectuurdocumenten, credentials en technisch intellectueel
+    eigendom.
+  kernrisico: >
+    Broncode en technisch IP vormen 26,5% van alle gevoelige data-exposures in
+    AI-tools (Harmonic Security, 2025). Code kan credentials en bedrijfslogica
+    bevatten.
+  voorbeeld: >
+    Bij Samsung voerde een ingenieur broncode in ChatGPT in om een bug op te
+    lossen; het werd een van de bekendste AI-datalekken. GitHub Copilot bleek
+    credentials te kunnen reproduceren uit publieke repositories.
+
+- sector: anders
+  label: "Algemeen / andere sector"
+  gevoelige_data: >
+    Persoonsgegevens van klanten en collega's, interne communicatie,
+    contracten, prijsinformatie en strategische documenten.
+  kernrisico: >
+    Ook buiten gereguleerde sectoren geldt: bedrijfsgevoelige informatie die in
+    een consumenten-AI-tool belandt, verlaat de organisatie zonder contractuele
+    bescherming.
+  voorbeeld: >
+    Het Samsung-incident (2023): drie datalekken binnen drie weken nadat
+    medewerkers toegang kregen tot ChatGPT, waaronder broncode en volledige
+    vergadernotulen.

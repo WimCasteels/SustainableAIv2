@@ -1,0 +1,183 @@
+# Module 5 — Veiliger werken met gevoelige data
+# Bron: "De Gevaren van het Delen van Data met AI-tools" (PWO Sustainable AI), hfst. 8-10
+
+- module: 5
+  stap: 1
+  type: activeren
+  titel: "Hoe veilig is jouw werkwijze vandaag?"
+  leerdoel: "Je kan inschatten hoe veilig je huidige werkwijze is"
+  niveau: "ethisch handelen"
+  image: "m5-1.png"
+  content: ""
+  context: >
+    Stel: je hebt een document met gevoelige informatie en je wil er snel een
+    samenvatting van. Wat doe je vandaag? Upload je het volledige document in
+    de eerste de beste AI-tool? Twijfel je even en doe je het dan toch? Of heb
+    je een vaste, veilige werkwijze? In de vorige modules zag je wat er met je
+    data gebeurt, welke data gevoelig is en wat er mis kan gaan. Deze laatste
+    module draait om het goede nieuws: je kan wél veilig met AI-tools werken.
+    Je leert data beschermen, de juiste tools kiezen en weten waar je
+    terechtkan bij twijfel.
+
+- module: 5
+  stap: 2
+  type: kern
+  titel: "Anonimisering en pseudonimisering"
+  leerdoel: "Je kan het verschil uitleggen tussen anonimisering en pseudonimisering, en de beperkingen ervan benoemen"
+  niveau: "kennen & begrijpen"
+  image: "m5-2.png"
+  content: |
+    <div class="slide-columns">
+        <div class="slide-col-green">
+            <h4>🔒 Anonimisering</h4>
+            <ul>
+                <li>Onomkeerbaar: de persoon is niet meer identificeerbaar</li>
+                <li>Valt buiten de AVG</li>
+            </ul>
+        </div>
+        <div class="slide-col-red">
+            <h4>🔑 Pseudonimisering</h4>
+            <ul>
+                <li>Omkeerbaar: identificatie kan via aanvullende informatie</li>
+                <li>Blijft onder de AVG vallen</li>
+            </ul>
+        </div>
+    </div>
+    <div class="slide-warning">
+        ⚠️ Geen wondermiddel: <strong>87%</strong> van de personen is uniek identificeerbaar
+        via alleen geboortedatum + geslacht + postcode.
+    </div>
+  context: >
+    Wie data wil delen met een AI-tool, kan die eerst beschermen. Daarbij is
+    het verschil tussen twee technieken cruciaal. Anonimisering is
+    onomkeerbaar: de data is niet meer naar een persoon te herleiden en valt
+    daardoor buiten de AVG. Pseudonimisering is omkeerbaar: identificerende
+    gegevens worden vervangen, maar met aanvullende informatie is de persoon
+    nog te identificeren — en daarom blijft de AVG volledig van toepassing.
+    Let wel: dit is geen wondermiddel. Onderzoek toont dat 87% van de personen
+    uniek identificeerbaar is via alleen geboortedatum, geslacht en postcode.
+    Echt anonimiseren is moeilijker dan het lijkt; namen weghalen is meestal
+    niet genoeg.
+
+- module: 5
+  stap: 3
+  type: verdieping
+  titel: "Veiligere alternatieven en goede afspraken"
+  leerdoel: "Je kan veiligere alternatieven en governance-maatregelen benoemen"
+  niveau: "toepassen"
+  image: "m5-3.png"
+  content: |
+    <div class="slide-content">
+        <ul>
+            <li><strong>AI-gebruiksbeleid</strong> — duidelijke afspraken over welke tools en welke data</li>
+            <li><strong>Rollen</strong> — DPO, IT en gebruiker hebben elk hun verantwoordelijkheid</li>
+            <li><strong>Leveranciersbeoordeling</strong> — check DPA, dataretentie en verwerkingslocatie</li>
+        </ul>
+    </div>
+    <div class="slide-highlight">
+        🇪🇺 Europese en lokale alternatieven: <strong>Mistral</strong>, <strong>Aleph Alpha</strong>,
+        en lokaal gehoste open-source modellen.
+    </div>
+  context: >
+    Veilig werken met AI is niet alleen een individuele verantwoordelijkheid;
+    het vraagt ook goede afspraken in de organisatie. Een AI-gebruiksbeleid
+    legt vast welke tools goedgekeurd zijn en welke data erin mag. Duidelijke
+    rollen helpen: de DPO bewaakt de privacy, IT beoordeelt en beheert de
+    tools, en jij als gebruiker maakt de dagelijkse keuzes. Bij de keuze van
+    een tool hoort een leveranciersbeoordeling: is er een DPA, wat gebeurt er
+    met de data, waar wordt die verwerkt? En er zijn alternatieven die de
+    data dichter bij huis houden: Europese aanbieders zoals Mistral en Aleph
+    Alpha, of lokaal gehoste open-source modellen waarbij de data de eigen
+    omgeving niet verlaat. Weet ook waar je terechtkan bij twijfel: je DPO of
+    IT-dienst helpt liever vooraf dan na een lek.
+
+- module: 5
+  stap: 4
+  type: toepassing
+  titel: "Maak de veilige keuze"
+  leerdoel: "Je kan in een praktijksituatie de veilige keuze maken"
+  niveau: "toepassen"
+  image: "m5-4.png"
+  content: |
+    <div class="slide-content">
+        <h4>✅ Vuistregels</h4>
+        <ul>
+            <li>Gebruik alleen tools die je organisatie heeft goedgekeurd</li>
+            <li>Verwijder gevoelige informatie vóór je iets invoert</li>
+            <li>Twijfel je? Vraag het aan je DPO of IT-dienst</li>
+            <li>Test nooit met echte data</li>
+        </ul>
+    </div>
+  context: >
+    Tijd om alles samen te brengen. Je kent de risico's, je weet welke data
+    gevoelig is en welke bescherming mogelijk is. Nu komt het aan op de
+    dagelijkse reflex: bij elke taak even stilstaan bij wat je deelt, met
+    welke tool, en of dat nodig is. De vuistregels hierboven vormen je
+    checklist. Probeer het zelf in het chatvenster: de AI-coach legt je een
+    beslissingsscenario voor.
+  interactie: >
+    Leg de gebruiker dit beslissingsscenario voor, gesitueerd in zijn of haar
+    sector of rol: je moet een document met gevoelige informatie laten
+    samenvatten en hebt drie opties — (a) het volledige document uploaden
+    naar een gratis AI-tool, (b) eerst de gevoelige informatie verwijderen en
+    een door de organisatie goedgekeurde tool gebruiken, of (c) het via je
+    persoonlijke account doen zodat niemand het ziet. Vraag welke optie de
+    gebruiker kiest en waarom. Het juiste antwoord is (b): gevoelige
+    informatie eerst verwijderen of vervangen, en een goedgekeurde tool met
+    contractuele waarborgen gebruiken; optie (a) deelt gevoelige data zonder
+    bescherming en optie (c) is shadow AI. Geef feedback volgens het vaste
+    patroon en laat bij een onvolledig antwoord opnieuw proberen met een
+    hint.
+
+- module: 5
+  stap: 5
+  type: quiz_verankering
+  titel: "Wat onthoud je?"
+  leerdoel: "Je kan veilige keuzes correct maken en de prikbord-regel toepassen als dagelijkse reflex"
+  niveau: "ethisch handelen"
+  image: "m5-5.png"
+  content: ""
+  quiz:
+    - vraag: "Wat is het verschil tussen anonimisering en pseudonimisering?"
+      opties:
+        - "Er is geen verschil"
+        - "Bij pseudonimisering blijft de persoon identificeerbaar via aanvullende informatie"
+        - "Anonimisering valt onder de AVG, pseudonimisering niet"
+      correct: 1
+      feedback_basis: >
+        Pseudonimisering is omkeerbaar: met aanvullende informatie blijft de
+        persoon identificeerbaar, en daarom blijft de AVG van toepassing.
+        Anonimisering is onomkeerbaar en valt buiten de AVG — maar echt
+        anonimiseren is moeilijk: 87% van de personen is uniek
+        identificeerbaar via geboortedatum, geslacht en postcode.
+    - vraag: "Je wil een document met gevoelige informatie laten samenvatten door AI. Wat doe je best?"
+      opties:
+        - "Het volledige document uploaden"
+        - "Eerst gevoelige informatie verwijderen en een goedgekeurde tool gebruiken"
+        - "Een persoonlijk gratis account gebruiken"
+      correct: 1
+      feedback_basis: >
+        De veilige werkwijze combineert twee beschermingen: de gevoelige
+        informatie verwijderen vóór het invoeren, en een door de organisatie
+        goedgekeurde tool met contractuele waarborgen gebruiken. Een
+        persoonlijk gratis account is shadow AI: de data verlaat de
+        organisatie zonder bescherming.
+    - vraag: "Je wil een nieuwe AI-tool gebruiken voor je werk. Wat doe je eerst?"
+      opties:
+        - "Meteen gebruiken"
+        - "Checken of de tool is goedgekeurd binnen je organisatie"
+        - "Snel even testen met echte data"
+      correct: 1
+      feedback_basis: >
+        Check eerst of de tool goedgekeurd is binnen je organisatie; bij
+        twijfel vraag je het aan je DPO of IT-dienst. Testen met echte data is
+        precies hoe incidenten zoals bij Samsung ontstaan: ook een test deelt
+        de data echt met de provider.
+  context: >
+    Samengevat: bescherm data vóór je ze deelt (en overschat anonimisering
+    niet), gebruik goedgekeurde tools met contractuele waarborgen, en weet
+    waar je terechtkan bij twijfel. De kernboodschap van de hele training:
+    behandel een AI-tool als een slimme maar onbetrouwbare buitenstaander —
+    deel alleen wat je op een openbaar prikbord zou hangen. En blijf alert:
+    met multimodale AI, autonome agents en evoluerende regelgeving verandert
+    dit veld snel. De reflex die je hier leerde, blijft je kompas.

@@ -1,0 +1,179 @@
+# Module 3 — De risico's in de praktijk
+# Bron: "De Gevaren van het Delen van Data met AI-tools" (PWO Sustainable AI), hfst. 4-5
+
+- module: 3
+  stap: 1
+  type: activeren
+  titel: "Gebruik jij weleens een AI-tool die IT niet kent?"
+  leerdoel: "Je kan herkennen of shadow AI in jouw omgeving speelt"
+  niveau: "ethisch handelen"
+  image: "m3-1.png"
+  content: ""
+  context: >
+    Wees eens eerlijk: gebruik jij of een collega weleens een AI-tool die de
+    IT-afdeling niet kent of niet heeft goedgekeurd? Je bent in goed
+    gezelschap. Uit onderzoek van UpGuard blijkt dat meer dan 80% van de
+    werknemers niet-goedgekeurde AI-tools gebruikt, en volgens Cyberhaven
+    loopt ongeveer een derde van het AI-gebruik op het werk via persoonlijke
+    accounts. Bijna altijd met goede bedoelingen: sneller werken, betere
+    teksten, een lastige taak vereenvoudigen. In deze module ontdek je waarom
+    dit alledaagse gedrag — shadow AI — een van de grootste datarisico's van
+    dit moment is, en hoe snel het mis kan gaan.
+
+- module: 3
+  stap: 2
+  type: kern
+  titel: "Wat is shadow AI?"
+  leerdoel: "Je kan uitleggen wat shadow AI is en waarom het risico's creëert"
+  niveau: "kennen & begrijpen"
+  image: "m3-2.png"
+  content: |
+    <div class="slide-highlight">
+        <strong>Shadow AI</strong> = het gebruik van AI-tools door medewerkers zonder goedkeuring,
+        zichtbaarheid of toezicht van de IT-afdeling.
+    </div>
+    <div class="slide-content">
+        <ul>
+            <li>Medewerkers registreren zich met persoonlijke e-mailadressen</li>
+            <li>Goede intenties: sneller werken, betere antwoorden</li>
+            <li>Gevolg: bedrijfsdata belandt bij AI-providers zonder contractuele bescherming</li>
+            <li>Blokkeren werkt niet: 45% van de werknemers vindt workarounds</li>
+        </ul>
+    </div>
+  context: >
+    Shadow AI is het gebruik van AI-tools zonder goedkeuring, zichtbaarheid of
+    toezicht van de IT-afdeling. Medewerkers registreren zich met persoonlijke
+    accounts voor ChatGPT of andere diensten, bijna altijd met goede
+    intenties. Maar het gevolg is dat bedrijfsdata via een consumentenversie
+    bij een AI-provider terechtkomt, zonder enige contractuele bescherming. De
+    organisatie heeft geen zicht op wat er gedeeld wordt en geen controle over
+    hoe het verwerkt wordt. Simpelweg verbieden lost het niet op: 45% van de
+    werknemers vindt workarounds wanneer tools geblokkeerd worden. De
+    datastroom verdwijnt dan niet, hij wordt alleen onzichtbaar.
+
+- module: 3
+  stap: 3
+  type: verdieping
+  titel: "Samsung: drie lekken in drie weken"
+  leerdoel: "Je kan aan de hand van het Samsung-incident uitleggen hoe snel het misgaat"
+  niveau: "kennen & begrijpen"
+  image: "m3-3.png"
+  content: |
+    <div class="slide-warning">
+        <strong>Het Samsung-incident (2023)</strong> — Binnen drie weken nadat medewerkers toegang
+        kregen tot ChatGPT: drie datalekken, waaronder broncode en volledige vergadernotulen.
+    </div>
+    <div class="slide-content">
+        <ul>
+            <li><strong>Extractie van trainingsdata</strong> — modellen kunnen gevoelige invoer reproduceren</li>
+            <li><strong>Prompt injection</strong> — verborgen instructies die een AI-tool misleiden</li>
+            <li><strong>Browser-extensies</strong> — AI-plugins die meelezen met alles op je scherm</li>
+            <li><strong>Agentic AI</strong> — autonome agents die zelfstandig data verzamelen en delen</li>
+        </ul>
+    </div>
+  context: >
+    Hoe snel het misgaat, bewees het Samsung-incident in 2023. Binnen drie
+    weken nadat medewerkers toegang kregen tot ChatGPT, lekte er drie keer
+    gevoelige informatie: een ingenieur voerde broncode in om een bug op te
+    lossen, en ook volledige vergadernotulen belandden in de tool. Geen
+    kwade opzet, wel jaren werk dat de organisatie verliet. Naast dit
+    menselijke risico zijn er technische aanvalswegen: modellen kunnen
+    trainingsdata reproduceren, prompt injection kan een AI-tool verborgen
+    instructies laten uitvoeren, browser-extensies met AI lezen mee met wat
+    er op je scherm staat, en autonome AI-agents verzamelen en delen
+    zelfstandig data. Het risico zit dus niet alleen in wat jij bewust
+    intypt.
+
+- module: 3
+  stap: 4
+  type: toepassing
+  titel: "Hoe groot is de schade?"
+  leerdoel: "Je kan de impact van een datalek inschatten op privacy, bedrijfsgeheimen, reputatie en juridische aansprakelijkheid"
+  niveau: "evalueren & creëren"
+  image: "m3-4.png"
+  content: |
+    <div class="slide-columns">
+        <div class="slide-col-red">
+            <h4>Impactgebieden van een datalek</h4>
+            <ul>
+                <li>🔓 Onverwijderbare persoonsgegevens</li>
+                <li>🏭 Verlies van concurrentievoordeel</li>
+                <li>⚖️ Schending van het beroepsgeheim</li>
+                <li>📰 Reputatieschade</li>
+                <li>💶 AVG-boetes tot 20 miljoen euro of 4% van de wereldwijde omzet</li>
+            </ul>
+        </div>
+    </div>
+  context: >
+    Een datalek via een AI-tool raakt een organisatie op meerdere fronten
+    tegelijk. Persoonsgegevens die in een model belanden, zijn praktisch niet
+    meer te verwijderen. Bedrijfsgeheimen die uitlekken, betekenen verlies van
+    concurrentievoordeel. Wie onder het beroepsgeheim valt, riskeert
+    tuchtrechtelijke en strafrechtelijke gevolgen. Daarbovenop komen
+    reputatieschade en AVG-boetes die kunnen oplopen tot 20 miljoen euro of 4%
+    van de wereldwijde jaaromzet. Probeer het zelf in het chatvenster: de
+    AI-coach legt je een situatie voor.
+  interactie: >
+    Leg de gebruiker dit scenario voor, gesitueerd in zijn of haar sector of
+    rol: een medewerker plakt een intern document met klantgegevens en
+    strategische plannen in een gratis AI-tool om er een presentatie van te
+    laten maken. Het document blijkt later via de tool gelekt. Vraag: welke
+    soorten schade kan dit veroorzaken voor de organisatie? Een goed antwoord
+    benoemt minstens drie impactgebieden: privacyschade (onverwijderbare
+    persoonsgegevens), verlies van bedrijfsgeheimen of concurrentievoordeel,
+    reputatieschade, en juridische gevolgen zoals AVG-boetes tot 20 miljoen
+    euro of 4% van de omzet (en waar relevant het beroepsgeheim). Geef
+    feedback volgens het vaste patroon en laat bij een onvolledig antwoord
+    opnieuw proberen met een hint.
+
+- module: 3
+  stap: 5
+  type: quiz_verankering
+  titel: "Wat onthoud je?"
+  leerdoel: "Je kan risico's en impact correct benoemen, en het grootste risico in eigen context aanduiden"
+  niveau: "ethisch handelen"
+  image: "m3-5.png"
+  content: ""
+  quiz:
+    - vraag: "Wat is shadow AI?"
+      opties:
+        - "Een slim AI-model"
+        - "Gebruik van AI-tools zonder toestemming of toezicht van de organisatie"
+        - "Een veilige interne AI"
+      correct: 1
+      feedback_basis: >
+        Shadow AI is het gebruik van AI-tools zonder goedkeuring, zichtbaarheid
+        of toezicht van de IT-afdeling. Meer dan 80% van de werknemers doet
+        het, vaak via persoonlijke accounts en bijna altijd met goede
+        intenties — maar de datastroom is ongecontroleerd.
+    - vraag: "Een collega gebruikt een persoonlijk gratis AI-account om interne documenten samen te vatten. Wat is het grootste risico?"
+      opties:
+        - "Tragere wifi"
+        - "Gevoelige data verlaat de organisatie zonder bescherming"
+        - "Het document wordt mooier"
+      correct: 1
+      feedback_basis: >
+        Via een persoonlijk gratis account belandt bedrijfsdata bij een
+        AI-provider zonder dataverwerkingsovereenkomst en zonder
+        training-opt-out. De organisatie heeft geen zicht op wat er gedeeld
+        wordt en geen controle over de verwerking.
+    - vraag: "Welke gevolgen kan een datalek via AI-tools hebben?"
+      opties:
+        - "Reputatieschade"
+        - "Verlies van bedrijfsgeheimen"
+        - "Privacyproblemen en boetes"
+        - "Alle drie"
+      correct: 3
+      feedback_basis: >
+        Een datalek raakt meerdere fronten tegelijk: privacy (onverwijderbare
+        persoonsgegevens), bedrijfsgeheimen en concurrentievoordeel,
+        reputatie, en juridische aansprakelijkheid met AVG-boetes tot 20
+        miljoen euro of 4% van de wereldwijde omzet.
+  context: >
+    Samengevat: shadow AI is wijdverspreid en ontstaat uit goede bedoelingen,
+    maar creëert ongecontroleerde datastromen. Het Samsung-incident toont hoe
+    snel het misgaat: drie lekken in drie weken. De impact van een datalek
+    raakt privacy, bedrijfsgeheimen, reputatie en de juridische positie van de
+    organisatie tegelijk. Sta ook even stil bij de vraag: welke schade zou in
+    jouw situatie het grootst zijn? De takeaway van deze module: één prompt
+    kan jaren werk blootleggen.

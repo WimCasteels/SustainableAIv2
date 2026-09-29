@@ -1,0 +1,19 @@
+Taak: herschrijf de onderstaande kerntekst van de stap "{titel}" zodat de toon
+en complexiteit passen bij het kennisniveau van de gebruiker.
+
+Strikte regels voor deze stap:
+- Alle feiten, cijfers, definities, wetnamen en juridische formuleringen
+  blijven letterlijk en volledig behouden. Niets weglaten, niets toevoegen.
+- Je past alleen toon, zinslengte en omkadering aan.
+- Voeg geen nieuwe voorbeelden toe; verwijs hooguit kort naar de context van
+  de gebruiker in de openings- of slotzin.
+
+Opmaak (Markdown, gericht op snel scannen):
+- Begin met één vetgedrukte kernzin die de essentie samenvat.
+- Zet de feiten daarna in 3 tot 5 korte bullets; per bullet het sleutelbegrip,
+  cijfer of de wetnaam in vet. De formulering van de feiten zelf blijft letterlijk.
+- Korte zinnen, geen lange alinea's.
+- Sluit af met één korte slotzin op een eigen regel.
+
+Originele tekst:
+{context}

@@ -1,0 +1,110 @@
+- title: "Welke data is gevoelig?"
+  subtitle: "Een overzicht van wat je beter niet deelt met AI-tools"
+  content: ""
+  context: >
+    Niet alle data is gelijk. Sommige informatie is wettelijk beschermd, andere informatie
+    is strategisch waardevol voor je organisatie. In deze presentatie bekijken we welke
+    soorten data extra aandacht verdienen wanneer je met AI-tools werkt — van persoonsgegevens
+    onder de AVG tot bedrijfsgeheimen en multimodale data.
+
+- title: "Persoonsgegevens volgens de AVG/GDPR"
+  subtitle: ""
+  content: |
+    <div class="slide-content">
+        <ul>
+            <li><strong>Namen</strong>, adressen, e-mailadressen, telefoonnummers</li>
+            <li><strong>IP-adressen</strong> en online identificatoren</li>
+            <li><strong>Locatiegegevens</strong> en financiële gegevens</li>
+        </ul>
+    </div>
+    <div class="slide-highlight">
+        De AVG/GDPR definieert persoonsgegevens als <strong>alle informatie die betrekking heeft
+        op een geïdentificeerde of identificeerbare natuurlijke persoon</strong>.
+    </div>
+  context: >
+    De Algemene Verordening Gegevensbescherming (AVG/GDPR) definieert persoonsgegevens als
+    alle informatie die betrekking heeft op een geïdentificeerde of identificeerbare
+    natuurlijke persoon. Denk aan namen, adressen, e-mailadressen, telefoonnummers,
+    IP-adressen, locatiegegevens, financiële gegevens en online identificatoren.
+
+- title: "Bijzondere categorieën persoonsgegevens"
+  subtitle: "Extra beschermd onder de AVG"
+  content: |
+    <div class="slide-content">
+        <ul>
+            <li>Ras of etnische afkomst</li>
+            <li>Politieke opvattingen</li>
+            <li>Religieuze of levensbeschouwelijke overtuigingen</li>
+            <li>Lidmaatschap van een vakbond</li>
+            <li>Genetische en biometrische gegevens</li>
+            <li>Gezondheidsgegevens</li>
+            <li>Gegevens over seksuele geaardheid</li>
+        </ul>
+    </div>
+    <div class="slide-warning">
+        ⚠️ De verwerking van deze data is <strong>in principe verboden</strong>,
+        tenzij een specifieke uitzondering van toepassing is.
+    </div>
+  context: >
+    Bijzondere categorieën van persoonsgegevens genieten extra bescherming onder de AVG.
+    Het gaat om gegevens over ras of etnische afkomst, politieke opvattingen, religieuze
+    overtuigingen, lidmaatschap van een vakbond, genetische en biometrische gegevens,
+    gezondheidsgegevens, en gegevens over iemands seksuele geaardheid. De verwerking van
+    deze data is in principe verboden, tenzij een specifieke uitzondering van toepassing is.
+
+- title: "Bedrijfsgevoelige informatie"
+  subtitle: ""
+  content: |
+    <div class="slide-columns">
+        <div class="slide-col-red">
+            <h4>🏢 Bedrijfsgeheimen</h4>
+            <ul>
+                <li>Broncode</li>
+                <li>Strategische plannen</li>
+                <li>Financiële rapporten</li>
+                <li>Contracten en klantenlijsten</li>
+                <li>Prijsstrategieën</li>
+                <li>Interne communicatie</li>
+            </ul>
+        </div>
+        <div class="slide-col-red">
+            <h4>⚖️ Beroepsgeheim</h4>
+            <ul>
+                <li>Advocaten</li>
+                <li>Artsen</li>
+                <li>Notarissen</li>
+                <li>Ambtenaren</li>
+            </ul>
+        </div>
+    </div>
+  context: >
+    Naast persoonsgegevens zijn er vele vormen van bedrijfsinformatie die niet in een
+    externe AI-tool thuishoren: bedrijfsgeheimen, broncode, strategische plannen, financiële
+    rapporten, contracten, klantenlijsten, prijsstrategieën, en interne communicatie.
+    Informatie die onder het beroepsgeheim valt (denk aan advocaten, artsen, notarissen en
+    ambtenaren) verdient bijzondere aandacht.
+
+- title: "Multimodale data"
+  subtitle: "Niet alleen tekst is gevoelig"
+  content: |
+    <div class="flow-steps">
+        <div class="flow-step">📝 Tekst</div>
+        <div class="flow-step">📷 Afbeeldingen</div>
+        <div class="flow-step">🎙️ Audio</div>
+        <div class="flow-step">🎬 Video</div>
+    </div>
+    <div class="slide-content">
+        <ul>
+            <li>Een <strong>foto van een whiteboard</strong> na een vergadering</li>
+            <li>Een <strong>spraakopname</strong> van een klanttelefoontje</li>
+            <li>Een <strong>schermopname</strong> met gevoelige informatie</li>
+        </ul>
+    </div>
+    <div class="slide-warning">
+        ⚠️ Al deze vormen van data worden met de AI-provider gedeeld wanneer je ze uploadt.
+    </div>
+  context: >
+    Moderne AI-tools verwerken niet alleen tekst, maar ook afbeeldingen, audio en video.
+    Een foto van een whiteboard na een vergadering, een spraakopname van een klanttelefoontje,
+    of een schermopname met gevoelige informatie — dit alles vormt potentieel gevoelige data
+    die met de AI-provider wordt gedeeld.
