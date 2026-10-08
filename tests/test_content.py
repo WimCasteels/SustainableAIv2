@@ -68,3 +68,19 @@ def test_quiz_correct_buiten_bereik_geeft_valueerror(tmp_path, module_data):
     module_data["stappen"][5]["quiz"][0]["correct"] = 9
     with pytest.raises(ValueError, match="correct"):
         content.load_module(_schrijf(tmp_path, module_data))
+
+
+def test_prompts_zijn_geldig():
+    content.valideer_prompts()
+
+
+@pytest.mark.parametrize("fout, melding", [
+    ("Werk: {werkk}", "onbekend invulveld"),
+    ("Een losse { accolade", "losse accolade"),
+])
+def test_fout_in_prompt_geeft_valueerror(tmp_path, fout, melding):
+    for pad in content.PROMPTS_DIR.glob("*.txt"):
+        (tmp_path / pad.name).write_text(pad.read_text(encoding="utf-8"), encoding="utf-8")
+    (tmp_path / "basis.txt").write_text(fout, encoding="utf-8")
+    with pytest.raises(ValueError, match=melding):
+        content.valideer_prompts(tmp_path)

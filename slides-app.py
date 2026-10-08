@@ -141,6 +141,7 @@ st.markdown("""
 
 try:
     MODULE = content.load_module()
+    content.valideer_prompts()
 except ValueError as fout:
     st.error(f"Contentfout bij het opstarten: {fout}")
     st.stop()

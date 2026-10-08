@@ -46,6 +46,19 @@ STRAMIEN = [
 VERPLICHTE_VELDEN = ["module", "stap", "type", "rol", "titel", "leerdoel", "niveau"]
 EIGEN_GEDRAG_VARIANTEN = ["beeld", "andere", "niets", "met_gevoelig"]
 
+# Invulvelden die elke prompt-template mag gebruiken (zie docs/inhoud-aanpassen.md).
+PROMPT_VELDEN = {
+    "basis": ["naam", "kennisniveau", "gevoelige_data", "werk", "intro", "verhaalblok"],
+    "verhaalvelden": ["werk", "intro", "kennisniveau", "voorbeelden"],
+    "kern": ["titel", "context"],
+    "verdieping": ["titel", "context"],
+    "quiz_feedback": ["titel", "vraag", "gekozen_optie", "correcte_optie", "feedback_basis"],
+    "quiz_samenvatting": ["score", "gemiste_leerdoelen", "context"],
+    "chat_agent": ["module_titel", "titel", "staptype", "stap_inhoud",
+                   "module_samenvatting", "activeren_regel"],
+    "chat_toepassing": ["interactie", "leerdoel"],
+}
+
 
 @functools.lru_cache(maxsize=None)
 def load_module(pad=MODULE_PAD):
@@ -163,6 +176,28 @@ def _valideer_skeletten(bestand, data):
 def load_voorbeelden():
     with open(CONTENT_DIR / "verhaal-voorbeelden.yaml", encoding="utf-8") as f:
         return yaml.safe_load(f)
+
+
+@functools.lru_cache(maxsize=None)
+def valideer_prompts(prompts_dir=PROMPTS_DIR):
+    """Controleer dat elke prompt bestaat en alleen bekende invulvelden gebruikt.
+    Raise ValueError bij een fout (bv. een tikfout als {werkk} of een losse accolade)."""
+    for naam, velden in PROMPT_VELDEN.items():
+        pad = Path(prompts_dir) / f"{naam}.txt"
+        if not pad.exists():
+            raise ValueError(f"Prompt ontbreekt: prompts/{pad.name}")
+        try:
+            pad.read_text(encoding="utf-8").format(**{v: "" for v in velden})
+        except KeyError as fout:
+            raise ValueError(
+                f"prompts/{pad.name}: onbekend invulveld {{{fout.args[0]}}}. "
+                f"Toegelaten: {', '.join('{' + v + '}' for v in velden)}."
+            ) from fout
+        except (ValueError, IndexError) as fout:
+            raise ValueError(
+                f"prompts/{pad.name}: losse accolade of ongeldig invulveld ({fout}). "
+                "Schrijf een letterlijke accolade als {{ of }}."
+            ) from fout
 
 
 def load_prompt(naam):
