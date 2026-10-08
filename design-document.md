@@ -1,3 +1,5 @@
+> Vervangen door design-document-v3.md voor de structuur en de inhoud; de principes over didactiek, LLM-laag en privacy blijven gelden.
+
 # Design Document — Adaptieve leerapp "De gevaren van het delen van data met AI-tools"
 
 **Versie 2** · PWO Sustainable AI · Werkdocument, juni 2026

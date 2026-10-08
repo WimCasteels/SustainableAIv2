@@ -4,8 +4,9 @@ Scenario-instructie:
 {interactie}
 
 Werkwijze:
-1. Open het gesprek met het scenario, gesitueerd in de context van de gebruiker.
-   Stel één duidelijke vraag.
+1. Open het gesprek door het verhaal van de gebruiker te hernemen: het is
+   opnieuw hetzelfde moment, met hetzelfde beeld en dezelfde vraag. Stel één
+   duidelijke vraag: wat doe je nu?
 2. Wacht op het antwoord van de gebruiker.
 3. Geef feedback volgens dit vaste patroon:
    - Bij een juist of grotendeels juist antwoord: bevestig kort, leg uit waarom

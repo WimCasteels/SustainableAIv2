@@ -1,6 +1,6 @@
-"""Adaptieve leerapp 'De gevaren van het delen van data met AI-tools' — versie 2.
+"""Adaptieve leerapp 'Elke prompt is een potentieel datalek' — versie 3.
 
-Routing en layout; zie design-document.md voor het volledige ontwerp.
+Routing en layout; zie design-document-v3.md voor het volledige ontwerp.
 """
 
 import streamlit as st
@@ -9,6 +9,7 @@ import chat
 import content
 import intake
 import slides
+import verhaal
 
 st.set_page_config(
     page_title="Elke prompt is een potentieel datalek",
@@ -121,30 +122,25 @@ st.markdown("""
     .slide-col-red h4, .slide-col-green h4 { margin: 0 0 0.5rem 0; }
     .slide-col-red ul, .slide-col-green ul { margin: 0; padding-left: 1.2rem; line-height: 1.8; }
 
-    /* Modulekaarten op het overzicht */
-    .module-kaart {
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        border-radius: 12px;
-        padding: 1.2rem 1.5rem;
-        margin-bottom: 0.4rem;
-        min-height: 7.5rem;
+    /* Verhaaltekst (containers met key verhaal_<stap> en verhaal_einde) */
+    [class*="st-key-verhaal_"] {
+        border-left: 4px solid #818cf8;
+        padding: 0.4rem 0 0.4rem 1.2rem;
+        margin: 1rem 0 1.2rem 0;
+        font-size: 1.08rem;
+        line-height: 1.85;
+        color: #1e293b;
     }
-    .module-kaart h4 { margin: 0 0 0.4rem 0; color: #1e293b; }
-    .module-kaart p { margin: 0; color: #64748b; font-size: 0.88rem; line-height: 1.6; }
+    [class*="st-key-verhaal_"] p { margin: 0 0 0.8rem 0; font-size: inherit; line-height: inherit; }
+    [class*="st-key-verhaal_"] p:last-child { margin-bottom: 0; }
 
     .chat-titel { font-weight: 700; color: #1e293b; font-size: 1.1rem; margin-bottom: 0.2rem; }
 </style>
 """, unsafe_allow_html=True)
 
 
-@st.cache_resource
-def laad_content():
-    return content.load_modules(), content.load_sectoren()
-
-
 try:
-    MODULES, SECTOREN = laad_content()
+    MODULE = content.load_module()
 except ValueError as fout:
     st.error(f"Contentfout bij het opstarten: {fout}")
     st.stop()
@@ -152,7 +148,6 @@ except ValueError as fout:
 # --- Session state ---
 st.session_state.setdefault("pagina", "intake")
 st.session_state.setdefault("profiel", None)
-st.session_state.setdefault("module_nr", None)
 st.session_state.setdefault("stap_idx", 0)
 
 # --- Routing ---
@@ -162,57 +157,18 @@ if st.session_state.profiel is None or st.session_state.pagina == "intake":
 
 profiel = st.session_state.profiel
 
-# --- Moduleoverzicht ---
-if st.session_state.pagina == "overzicht":
-    naam = f", {profiel['naam']}" if profiel.get("naam") else ""
-    st.markdown(
-        f"""
-        <div class="context-box" style="text-align: center;">
-            <h2 style="margin: 0 0 0.5rem 0; color: #1e293b;">Welkom{naam} 👋</h2>
-            <p style="color: #64748b; margin: 0;">Vijf modules over de gevaren van het delen van
-            data met AI-tools. Volg ze op volgorde of kies wat jou interesseert.
-            Kernboodschap: <strong>elke prompt is een potentieel datalek.</strong></p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.markdown("<div style='height: 1rem'></div>", unsafe_allow_html=True)
-
-    kolommen = st.columns(len(content.MODULES))
-    for kolom, (nummer, meta) in zip(kolommen, content.MODULES.items()):
-        with kolom:
-            st.markdown(
-                f"""
-                <div class="module-kaart">
-                    <h4>Module {nummer}</h4>
-                    <p><strong>{meta["titel"]}</strong></p>
-                    <p style="margin-top: 0.4rem;">{meta["modeldoel"]}</p>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-            if st.button("Start module", key=f"start_{nummer}", width="stretch"):
-                st.session_state.module_nr = nummer
-                st.session_state.stap_idx = 0
-                st.session_state.pagina = "module"
-                st.rerun()
-
-    st.markdown("<div style='height: 1rem'></div>", unsafe_allow_html=True)
-    if st.button("Profiel aanpassen"):
-        st.session_state.pagina = "intake"
-        st.rerun()
-    st.stop()
-
 # --- Moduleweergave: slides links, chat-agent rechts ---
-if st.button("< Terug naar overzicht"):
-    st.session_state.pagina = "overzicht"
+if st.button("Profiel aanpassen"):
+    st.session_state.pagina = "intake"
     st.rerun()
 
-stappen = MODULES[st.session_state.module_nr]
+# Eén LLM-call per profiel (gecachet); bij de eerste weergave met een spinner.
+velden = verhaal.velden(profiel)
+stappen = verhaal.vul_stappen(MODULE["stappen"], velden)
 huidige_stap = stappen[st.session_state.stap_idx]
 
 kolom_slide, kolom_chat = st.columns([2, 1], gap="large")
 with kolom_slide:
-    slides.render_stap(stappen, profiel, SECTOREN)
+    slides.render_stap(stappen, profiel, velden)
 with kolom_chat:
-    chat.render_chat(huidige_stap, stappen, profiel, SECTOREN)
+    chat.render_chat(huidige_stap, stappen, profiel, velden)

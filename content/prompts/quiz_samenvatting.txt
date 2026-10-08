@@ -1,20 +1,10 @@
-De gebruiker rondde de quiz van de module af met een score van {score} op 3.
-{gemiste_leerdoelen}
+De gebruiker haalde {score} op 3 voor de quiz. {gemiste_leerdoelen}
 
-Basistekst voor de samenvatting:
+Basistekst:
 {context}
 
-Taak: schrijf de afsluitende samenvatting van de module.
-- Bij een score van 2 of 3: houd het beknopt en bevestigend; sluit af met de
-  takeaway uit de basistekst, gekoppeld aan wat de gebruiker bij de intake over
-  zichzelf vertelde.
-- Bij een score van 0 of 1: neem iets meer ruimte en leg de gemiste leerdoelen
-  opnieuw uit in eenvoudige woorden, op basis van de basistekst. Sluit
-  bemoedigend af met dezelfde takeaway; de gebruiker kan stappen altijd
-  opnieuw bekijken.
-Alle feiten en de formulering van de takeaway blijven inhoudelijk behouden.
-
-Opmaak (Markdown, gericht op snel scannen):
-- Begin met één vetgedrukte kernzin over hoe de gebruiker het deed.
-- Zet de kernpunten van de module in 3 tot 5 korte bullets; sleutelbegrippen in vet.
-- Sluit af met de takeaway in vet op een eigen regel.
+Taak: leg de gemiste punten opnieuw uit in eenvoudige woorden, op basis van de
+basistekst. Houd het kort: hoogstens vijf zinnen of drie bullets. Wees
+bemoedigend; de gebruiker kan de stappen altijd opnieuw bekijken. Schrijf geen
+afsluitende takeaway: die volgt nog in het verhaal.
+Alle feiten blijven inhoudelijk behouden. Zet sleutelbegrippen in vet (Markdown).

@@ -1,0 +1,294 @@
+# Module "Van upload tot datalek" — versie 3
+# Eén doorlopend verhaal: hook → why → what → how → toepassing → einde.
+# Invulvelden tussen accolades worden door verhaal.vul_in() ingevuld (zie design-document-v3.md §5).
+# content_zichtbaar: true toont het content-blok direct onder de verhaaltekst;
+# anders staat het in de expander "Leerdoel en extra info".
+
+categorie_zinnen:
+  persoonsgegevens: >-
+    Zodra iets naar een persoon te herleiden is, gaat het om persoonsgegevens,
+    en die vallen onder de AVG.
+  bijzondere_persoonsgegevens: >-
+    Gegevens over gezondheid, afkomst, religie, politieke opvattingen,
+    biometrie of seksuele geaardheid zijn bovendien extra beschermd: die
+    verwerken is in principe verboden, tenzij een specifieke uitzondering geldt.
+  bedrijfsgevoelig: >-
+    Contracten, cijfers, klantenlijsten en plannen zijn bedrijfsgevoelig: niet
+    altijd wettelijk beschermd, maar wel waardevol voor je organisatie.
+  beroepsgeheim: >-
+    En wie onder het beroepsgeheim valt, draagt een extra verantwoordelijkheid:
+    dossierinformatie delen met een AI-tool kan een schending van dat
+    beroepsgeheim zijn.
+
+einde_eigen_gedrag:
+  beeld: "En eerlijk: je gaf zelf aan dat je al eens een foto of screenshot in een AI-tool zette."
+  andere: "Je gaf zelf aan dat je al {gedeeld} in een AI-tool zette. Daarvoor geldt precies hetzelfde."
+  niets: "Je gaf aan dat je nog niets in een AI-tool zette. Hou die reflex vast."
+  met_gevoelig: " En daar stond een naam, een gezicht of klantgegevens in."
+
+stappen:
+
+- module: 1
+  stap: 1
+  type: activeren
+  rol: hook
+  titel: "Tien seconden later"
+  leerdoel: "Je kan benoemen welke data jij zelf al met AI-tools deelde"
+  niveau: "ethisch handelen"
+  image: "m1-1.png"
+  content: ""
+  verhaal: |-
+    {moment}. {aanleiding}
+
+    Je neemt {beeld} en zet die in een gratis AI-tool, met de vraag: "{vraag}"
+
+    Tien seconden later heb je een helder antwoord. Probleem opgelost. Jij bent die {beeldwoord} alweer vergeten.
+
+    Maar die {beeldwoord} vergeet jou niet.
+  activeren:
+    vraag: "Wat heb jij de afgelopen maand al in een AI-tool gezet?"
+    opties:
+      - "De tekst van een mail"
+      - "Een document of verslag"
+      - "Een foto"
+      - "Een screenshot"
+      - "Een spraakopname"
+      - "Code"
+      - "Nog niets"
+    vervolgvraag: "Stond daar een naam, een gezicht of klantgegevens in?"
+    vervolgopties: ["Ja", "Nee", "Weet ik niet"]
+
+- module: 1
+  stap: 2
+  type: kern
+  rol: why
+  titel: "Wat staat er op die {beeldwoord}?"
+  leerdoel: "Je kan gevoelige data herkennen in tekst én beeld, en uitleggen waarom namen weglaten niet volstaat"
+  niveau: "kennen & begrijpen"
+  image: "m2-3.png"
+  content_zichtbaar: true
+  content: |
+    <div class="slide-columns">
+        <div class="slide-col-red">
+            <h4>👤 Persoonsgegevens</h4>
+            <ul>
+                <li>Naam, adres, e-mail, telefoon</li>
+                <li>Gezicht, stem, handschrift</li>
+                <li>IP-adres, dossiernummer</li>
+            </ul>
+        </div>
+        <div class="slide-col-red">
+            <h4>⚕️ Extra beschermd</h4>
+            <ul>
+                <li>Gezondheid, genetica, biometrie</li>
+                <li>Afkomst, religie, politieke opvattingen</li>
+                <li>Vakbondslidmaatschap, seksuele geaardheid</li>
+            </ul>
+        </div>
+        <div class="slide-col-red">
+            <h4>🏢 Bedrijfsgevoelig</h4>
+            <ul>
+                <li>Contracten, cijfers, klantenlijsten</li>
+                <li>Plannen, broncode</li>
+                <li>Informatie onder beroepsgeheim</li>
+            </ul>
+        </div>
+    </div>
+  verhaal: |-
+    Op die {beeldwoord} staat meer dan je denkt. {herkenbare_details}
+
+    {categorie_zinnen}
+
+    Wat er op het spel staat, is dus niet abstract: {inzet}.
+  context: >
+    De AVG noemt alles wat naar een persoon te herleiden is een persoonsgegeven.
+    Dat is breder dan veel mensen denken: een naam, een e-mailadres of een
+    IP-adres, maar ook een gezicht op een foto, een stem in een opname of een
+    dossiernummer. Sommige gegevens zijn extra beschermd: de bijzondere
+    categorieën, zoals gezondheid, etnische afkomst, religie, politieke
+    opvattingen, vakbondslidmaatschap, genetische en biometrische gegevens en
+    seksuele geaardheid. Die verwerken is in principe verboden, tenzij een
+    specifieke uitzondering geldt. Daarnaast is er bedrijfsgevoelige informatie,
+    zoals contracten, cijfers en klantenlijsten, en het beroepsgeheim van onder
+    meer artsen, advocaten en notarissen. Namen weglaten is meestal niet genoeg.
+    Wie namen vervangt door codes, pseudonimiseert: met de sleutel is de persoon
+    terug te vinden, en de AVG blijft gelden. Zelfs zonder sleutel lukt dat vaak:
+    een Amerikaanse studie toonde dat 87% van de mensen uniek te herkennen is aan
+    alleen hun geboortedatum, geslacht en postcode.
+
+- module: 1
+  stap: 3
+  type: kern
+  rol: what
+  titel: "Waar gaat je {beeldwoord} naartoe?"
+  leerdoel: "Je kan uitleggen wat er met data gebeurt na het uploaden, en waarom een goedgekeurde tool verschilt van een gratis account"
+  niveau: "kennen & begrijpen"
+  image: "m1-2.png"
+  content: |
+    <div class="flow-steps">
+        <div class="flow-step">📤 Upload</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">📁 Opslag</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">💬 Geschiedenis</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">👁️ Menselijke inzage</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">🧠 Training</div>
+    </div>
+  verhaal: |-
+    Waar gaat die {beeldwoord} naartoe zodra je op verzenden drukt?
+
+    Iets uploaden in een AI-tool is eigenlijk net als een ansichtkaart versturen: je schrijft ze voor één iemand, maar onderweg kan iedereen meelezen. En terugvragen gaat niet.
+  context: >
+    Wanneer je een tekst, foto of bestand uploadt naar een AI-tool, stopt het
+    verhaal niet bij het antwoord. Je invoer wordt opgeslagen in logbestanden en
+    je gesprek blijft bewaard in je geschiedenis. Medewerkers van de aanbieder
+    kunnen gesprekken bekijken, bijvoorbeeld voor kwaliteitscontrole en
+    veiligheid. En bij veel gratis accounts kan je invoer standaard gebruikt
+    worden om de modellen verder te trainen, tenzij je dat zelf uitzet. Wat
+    eenmaal in een getraind model zit, haal je er praktisch niet meer uit. De
+    grote aanbieders zijn bovendien Amerikaanse bedrijven, en dan speelt ook de
+    vraag welke overheid er toegang toe kan krijgen. Een goedgekeurde tool van
+    je organisatie werkt anders: daar horen afspraken bij over training,
+    bewaartermijnen en verwerking, vastgelegd in een verwerkersovereenkomst
+    (DPA). Een gratis account heeft die afspraken niet.
+
+- module: 1
+  stap: 4
+  type: verdieping
+  rol: how
+  titel: "53 foto's, niemand verwittigd"
+  leerdoel: "Je kan aan de hand van een recent incident uitleggen waarom je na het uploaden geen controle meer hebt"
+  niveau: "kennen & begrijpen"
+  image: "m3-3.png"
+  content: |
+    <div class="slide-warning">
+        ⚠️ Bekendgemaakt op 25 september 2026: AI-agents in de onderzoeksomgeving
+        van OpenAI zetten 53 privéfoto's van ChatGPT-gebruikers op externe beeldsites.
+        De getroffen gebruikers worden niet verwittigd.
+    </div>
+  verhaal: |-
+    Dat dit geen theorie is, bleek op 25 september 2026.
+
+    OpenAI maakte bekend dat AI-agents in zijn eigen onderzoeksomgeving 53 privéfoto's van ChatGPT-gebruikers op externe beeldsites hadden gezet. Het ging om beelden die OpenAI bewaarde om zijn modellen te trainen. Ze stonden online via links die nergens vermeld werden, maar voor wie de link had wel te openen.
+
+    Geen hacker. Geen kwaadwillige medewerker. Het systeem zelf.
+
+    De meeste foto's zijn intussen verwijderd. Maar de mensen van wie ze waren, krijgen geen bericht. OpenAI zegt dat het de foto's niet meer aan een account kan koppelen. De privacyfilter die hen moest beschermen, maakt het nu onmogelijk om hen te waarschuwen.
+  context: >
+    Dit incident toont twee dingen. Eén: data die je deelt, belandt in systemen
+    waar steeds vaker ook autonome AI-agents mee werken, en die doen niet altijd
+    wat de bedoeling is. Twee: eens je data bij een aanbieder zit, heb jij er
+    geen zicht meer op. Je krijgt geen melding, en de aanbieder kan je soms zelf
+    niet eens terugvinden. Opvolgen, laten verwijderen, je rechten uitoefenen:
+    het wordt allemaal moeilijk of onmogelijk. De enige bescherming die echt
+    werkt, zit dus vóór het uploaden: bij jou.
+
+- module: 1
+  stap: 5
+  type: toepassing
+  rol: toepassing
+  titel: "Wat doe je nu anders?"
+  leerdoel: "Je kan in je eigen werksituatie de veilige keuze maken en verantwoorden"
+  niveau: "evalueren & creëren"
+  image: "m5-4.png"
+  content_zichtbaar: true
+  content: |
+    <div class="slide-highlight">
+        <strong>Drie vragen vóór elke upload</strong><br>
+        1. Wat staat erop? &nbsp;·&nbsp; 2. Waar gaat het naartoe? &nbsp;·&nbsp; 3. Kan het zonder?
+    </div>
+  verhaal: |-
+    Terug naar het begin. Het is weer {moment_klein}, en je hebt weer {beeld} in je hand.
+
+    Wat doe je nu?
+  context: >
+    Tijd om het zelf te proberen. De AI-coach in het chatvenster neemt je mee
+    terug naar je verhaal en vraagt wat je nu anders zou doen. Er is niet één
+    juist antwoord, maar er zijn wel veilige en onveilige keuzes.
+  interactie: >
+    Herneem het verhaal van de gebruiker (zie "Verhaal van de gebruiker"). Open
+    met: het is opnieuw hetzelfde moment, de gebruiker heeft hetzelfde beeld en
+    dezelfde vraag. Vraag wat de gebruiker nu doet, en waarom. Een goed antwoord
+    bevat minstens twee van deze elementen: herkennen dat het beeld
+    persoonsgegevens of bedrijfsgevoelige informatie bevat; het beeld niet in een
+    gratis AI-tool zetten; een door de organisatie goedgekeurde tool gebruiken of
+    navragen welke dat is; het beeld minimaliseren (bijsnijden, onherkenbaar
+    maken, alleen het noodzakelijke tonen); het aan een collega, de DPO of de
+    IT-dienst vragen. Een antwoord dat alleen "gewoon niet doen" zegt, is
+    onvolledig: vraag dan hoe de gebruiker toch geholpen raakt. Geef feedback
+    volgens het vaste patroon en laat bij een onvolledig antwoord opnieuw
+    proberen met een hint.
+
+- module: 1
+  stap: 6
+  type: quiz_verankering
+  rol: einde
+  titel: "Zou je het op het prikbord hangen?"
+  leerdoel: "Je kan de prikbordregel toepassen als dagelijkse reflex"
+  niveau: "ethisch handelen"
+  image: "m5-5.png"
+  content: ""
+  verhaal: |-
+    Drie vragen. Daarna gaan we nog één keer terug naar {moment_klein}.
+  quiz:
+    - vraag: "Je gebruikt een gratis account van een AI-tool en hebt niets aan de instellingen veranderd. Je uploadt een foto om advies te vragen. Wat is het meest realistische gevolg?"
+      opties:
+        - "De foto wordt na het antwoord automatisch verwijderd, want ze is alleen nodig voor die ene vraag."
+        - "De foto blijft enkel in je eigen chatgeschiedenis staan, en die kan alleen jij bekijken."
+        - "De foto wordt bewaard bij de aanbieder en kan gebruikt worden om het model verder te trainen."
+        - "De foto wordt pas bewaard als je ze zelf opslaat in je account."
+      correct: 2
+      feedback_basis: >
+        Wat je uploadt, wordt bewaard in logbestanden en in je geschiedenis.
+        Medewerkers van de aanbieder kunnen gesprekken bekijken, en bij veel
+        gratis accounts kan je invoer standaard gebruikt worden voor training.
+        Wat in een getraind model zit, haal je er praktisch niet meer uit.
+    - vraag: "Je vervangt in een klantenlijst alle namen door codes (K001, K002, …). De sleutel die de codes aan de namen koppelt, bewaar je op je eigen laptop. Mag je de lijst nu zonder zorgen in een gratis AI-tool plakken?"
+      opties:
+        - "Ja, zonder namen zijn het geen persoonsgegevens meer."
+        - "Ja, zolang je de sleutel nooit mee uploadt, want zonder sleutel kan niemand de klanten terugvinden."
+        - "Nee, dit is pseudonimisering: de gegevens blijven herleidbaar en de AVG blijft gelden."
+        - "Nee, want codes zijn op zich al bijzondere persoonsgegevens."
+      correct: 2
+      feedback_basis: >
+        Namen vervangen door codes is pseudonimisering: met de sleutel is de
+        persoon terug te vinden, dus blijven het persoonsgegevens en blijft de
+        AVG gelden. Zelfs zonder sleutel lukt herkennen vaak: een Amerikaanse
+        studie toonde dat 87% van de mensen uniek te herkennen is aan
+        geboortedatum, geslacht en postcode.
+    - vraag: "OpenAI kon de mensen van wie de 53 foto's gelekt werden, niet verwittigen. Wat betekent dat voor jou?"
+      opties:
+        - "Dat je na het uploaden geen controle meer hebt, en dat voorkomen de enige echte bescherming is."
+        - "Dat de anonimisering door de aanbieder je volledig beschermt, want niemand weet dat het jouw foto is."
+        - "Dat je bij een lek altijd automatisch een melding krijgt van de aanbieder."
+        - "Dat het risico vooral bij hackers ligt, en niet bij de aanbieder zelf."
+      correct: 0
+      feedback_basis: >
+        Het lek kwam van het systeem zelf, niet van een hacker. De foto's
+        stonden online, en toch kregen de mensen van wie ze waren geen bericht,
+        omdat de aanbieder hen niet meer kon terugvinden. Na het uploaden heb je
+        geen controle meer; de enige bescherming die echt werkt, zit vóór het
+        uploaden.
+  context: >
+    Samengevat: op een foto, scan of screenshot staat vaak meer dan je denkt,
+    zoals gezichten, namen, gezondheidsinformatie of bedrijfsgegevens. Namen
+    weglaten is meestal niet genoeg. Wat je in een AI-tool zet, wordt bewaard,
+    kan bekeken worden door medewerkers van de aanbieder en kan bij gratis
+    accounts gebruikt worden voor training. Het lek van 53 foto's bij OpenAI
+    toont dat je na het uploaden geen controle meer hebt. Gebruik daarom een
+    goedgekeurde tool, deel alleen wat nodig is, en vraag het bij twijfel aan je
+    DPO of IT-dienst.
+  einde: |-
+    Terug naar {moment_klein}.
+
+    De {beeldwoord} van {betrokkene} staat nu op een server die jij niet kent, bij een bedrijf dat {betrokkene} niet kent. Als er iets misgaat, krijgt niemand bericht: {betrokkene} niet, en jij ook niet.
+
+    {eigen_gedrag_zin}
+
+    De volgende keer dat je iets wil uploaden, stel je jezelf één vraag: zou ik dit op het prikbord in {plek} hangen?
+
+    Nee? Dan hoort het ook niet in een gratis AI-tool. Vraag welke tool je organisatie heeft goedgekeurd, of {minimaliseer}.
+
+    **Elke prompt is een potentieel datalek. Jij beslist wat erin gaat.**

@@ -1,0 +1,58 @@
+# Voorbeelden van goed ingevulde verhaalvelden. Alleen ter illustratie in de
+# prompt verhaalvelden.txt; ze worden nooit rechtstreeks aan gebruikers getoond.
+
+- werk: "verpleegkundige in een ziekenhuis"
+  velden:
+    moment: "Donderdagavond, laatste ronde"
+    aanleiding: "De wonde van mevrouw Peeters ziet er anders uit dan gisteren. De wondverpleegkundige is pas maandag terug."
+    beeld: "een foto van de wonde van mevrouw Peeters"
+    beeldwoord: "foto"
+    vraag: "Is dit een infectie?"
+    betrokkene: "mevrouw Peeters"
+    herkenbare_details: "Een stukje van haar gezicht, haar polsbandje met naam en informatie over haar gezondheid."
+    categorieen: ["persoonsgegevens", "bijzondere_persoonsgegevens", "beroepsgeheim"]
+    inzet: "het vertrouwen van je patiënt en je beroepsgeheim"
+    plek: "de gang van de afdeling"
+    minimaliseer: "fotografeer alleen de wonde, zonder gezicht of polsbandje"
+
+- werk: "leerkracht in het lager onderwijs"
+  velden:
+    moment: "Vrijdag, net na het klasproject"
+    aanleiding: "De ouders vragen een verslag van het project, en je wil het nog voor het weekend versturen."
+    beeld: "een foto van je klas aan het werk, met de namen op het bord"
+    beeldwoord: "foto"
+    vraag: "Schrijf hier een leuk verslag over voor de ouders"
+    betrokkene: "je leerlingen"
+    herkenbare_details: "De gezichten van twintig kinderen, hun voornamen op het bord en het logo van de school."
+    categorieen: ["persoonsgegevens"]
+    inzet: "het vertrouwen van de ouders en de privacy van kinderen"
+    plek: "de leraarskamer"
+    minimaliseer: "schrijf het verslag zelf en laat de foto weg"
+
+- werk: "advocaat"
+  velden:
+    moment: "Dinsdagavond, de deadline is morgen"
+    aanleiding: "Je moet nog een lange overeenkomst doornemen voor een bespreking om negen uur."
+    beeld: "een scan van de ondertekende overeenkomst van je cliënt"
+    beeldwoord: "scan"
+    vraag: "Vat de belangrijkste clausules samen"
+    betrokkene: "je cliënt"
+    herkenbare_details: "De namen en handtekeningen van beide partijen, bedragen en een adres."
+    categorieen: ["persoonsgegevens", "bedrijfsgevoelig", "beroepsgeheim"]
+    inzet: "je beroepsgeheim en het vertrouwen van je cliënt"
+    plek: "de keuken van het kantoor"
+    minimaliseer: "werk met een geanonimiseerd model van de overeenkomst"
+
+- werk: "financieel analist"
+  velden:
+    moment: "Maandagochtend, kwartaalrapportering"
+    aanleiding: "Je manager wil tegen de middag drie grafieken, en het dashboard werkt niet mee."
+    beeld: "een screenshot van het dashboard met de omzet per klant"
+    beeldwoord: "screenshot"
+    vraag: "Maak hier drie duidelijke grafieken van"
+    betrokkene: "je klanten"
+    herkenbare_details: "De namen van de grootste klanten, hun omzet en de marges van dit kwartaal."
+    categorieen: ["bedrijfsgevoelig"]
+    inzet: "de concurrentiepositie en de reputatie van je organisatie"
+    plek: "de koffiehoek"
+    minimaliseer: "vervang klantnamen door algemene labels en rond de cijfers af"

@@ -1,4 +1,7 @@
-"""Quizflow: drie vaste vragen, gepersonaliseerde feedback en een score-afhankelijke samenvatting."""
+"""Quizflow: drie situatievragen met geschudde opties, gepersonaliseerde feedback,
+een herhaling bij een lage score en daarna het verhaaleinde."""
+
+import random
 
 import streamlit as st
 
@@ -6,28 +9,55 @@ import content
 import llm
 import personalize
 
+# Bij deze score of lager volgt een korte herhaling van de gemiste punten.
+MAX_SCORE_HERHALING = 1
+
 
 def _state(module_nr):
     sleutel = f"quiz_{module_nr}"
     if sleutel not in st.session_state:
         st.session_state[sleutel] = {
-            "vraag_idx": 0,        # eerstvolgende onbeantwoorde vraag
-            "antwoorden": [],      # gekozen optie-index per vraag
-            "feedback": [],        # gegenereerde feedbacktekst per vraag
+            "antwoorden": [],          # gekozen (oorspronkelijke) optie-index per vraag
+            "feedback": [],            # feedbacktekst per vraag
+            "volgorde": {},            # vraagindex -> permutatie van de optie-indexen
+            "wacht_op_verder": False,  # feedback staat er, wacht op "Volgende vraag"
             "samenvatting": None,
         }
     return st.session_state[sleutel]
 
 
-def _score(stap, state):
+def reset(module_nr):
+    """Wis de quizstatus, inclusief de permutaties en de radio-keuzes."""
+    st.session_state.pop(f"quiz_{module_nr}", None)
+    for sleutel in [k for k in st.session_state if str(k).startswith(f"quizkeuze_{module_nr}_")]:
+        del st.session_state[sleutel]
+
+
+def volgorde(state, i, aantal, rng=random):
+    """Permutatie van de opties van vraag i; één keer bepaald en daarna bewaard."""
+    if i not in state["volgorde"]:
+        perm = list(range(aantal))
+        rng.shuffle(perm)
+        state["volgorde"][i] = perm
+    return state["volgorde"][i]
+
+
+def score(stap, state):
     return sum(
         1 for i, keuze in enumerate(state["antwoorden"])
         if keuze == stap["quiz"][i]["correct"]
     )
 
 
-def _feedback_prompt(stap, vraag, keuze, profiel, sectoren):
-    basis = content.basisblok(profiel, sectoren)
+def _gemist(stap, state):
+    return [
+        stap["quiz"][i] for i, keuze in enumerate(state["antwoorden"])
+        if keuze != stap["quiz"][i]["correct"]
+    ]
+
+
+def _feedback_prompt(stap, vraag, keuze, profiel, velden):
+    basis = content.basisblok(profiel, velden)
     taak = content.load_prompt("quiz_feedback").format(
         titel=stap["titel"],
         vraag=vraag["vraag"],
@@ -38,13 +68,9 @@ def _feedback_prompt(stap, vraag, keuze, profiel, sectoren):
     return f"{basis}\n\n{taak}"
 
 
-def _samenvatting_prompt(stap, state, profiel, sectoren):
-    basis = content.basisblok(profiel, sectoren)
-    score = _score(stap, state)
-    gemist = [
-        stap["quiz"][i] for i, keuze in enumerate(state["antwoorden"])
-        if keuze != stap["quiz"][i]["correct"]
-    ]
+def _samenvatting_prompt(stap, state, profiel, velden):
+    basis = content.basisblok(profiel, velden)
+    gemist = _gemist(stap, state)
     if gemist:
         vragen = "; ".join(v["vraag"] for v in gemist)
         kernen = " ".join(v["feedback_basis"].strip() for v in gemist)
@@ -55,7 +81,7 @@ def _samenvatting_prompt(stap, state, profiel, sectoren):
     else:
         gemiste_leerdoelen = ""
     taak = content.load_prompt("quiz_samenvatting").format(
-        score=score,
+        score=score(stap, state),
         gemiste_leerdoelen=gemiste_leerdoelen,
         context=stap["context"].strip(),
     )
@@ -68,10 +94,9 @@ def _genereer(systeem):
     return personalize.stream_tekst(stroom)
 
 
-def _toon_beantwoord(stap, state, tot_en_met):
-    for i in range(tot_en_met):
+def _toon_beantwoord(stap, state):
+    for i, keuze in enumerate(state["antwoorden"]):
         vraag = stap["quiz"][i]
-        keuze = state["antwoorden"][i]
         juist = keuze == vraag["correct"]
         icoon = "✅" if juist else "❌"
         st.markdown(f"**Vraag {i + 1}. {vraag['vraag']}**")
@@ -82,65 +107,79 @@ def _toon_beantwoord(stap, state, tot_en_met):
         st.markdown("---")
 
 
-def render_quiz(stap, profiel, sectoren):
-    state = _state(stap["module"])
+def _toon_vraag(stap, state, idx, profiel, velden):
     vragen = stap["quiz"]
-    idx = state["vraag_idx"]
-
-    _toon_beantwoord(stap, state, min(idx, len(vragen)))
-
-    # Nog vragen open: toon de huidige vraag.
-    if idx < len(vragen):
-        vraag = vragen[idx]
-        st.markdown(f"**Vraag {idx + 1} van {len(vragen)}. {vraag['vraag']}**")
-        keuze_label = st.radio(
-            "Kies je antwoord",
-            vraag["opties"],
-            index=None,
-            key=f"quizkeuze_{stap['module']}_{idx}",
-            label_visibility="collapsed",
-        )
-        if st.button("Bevestig antwoord", disabled=keuze_label is None):
-            keuze = vraag["opties"].index(keuze_label)
-            state["antwoorden"].append(keuze)
-            juist = keuze == vraag["correct"]
-            st.markdown("✅ **Juist!**" if juist else "❌ **Niet juist.**")
-            if llm.available():
-                try:
-                    feedback = _genereer(_feedback_prompt(stap, vraag, keuze, profiel, sectoren))
-                except Exception:
-                    feedback = vraag["feedback_basis"].strip()
-                    st.markdown(feedback)
-            else:
-                feedback = vraag["feedback_basis"].strip()
-                st.markdown(feedback)
-            state["feedback"].append(feedback)
-            state["vraag_idx"] += 1
-            if st.button("Verder"):
-                st.rerun()
+    vraag = vragen[idx]
+    st.markdown(f"**Vraag {idx + 1} van {len(vragen)}. {vraag['vraag']}**")
+    # De radio toont de opties geschud, maar geeft de oorspronkelijke index terug.
+    keuze = st.radio(
+        "Kies je antwoord",
+        volgorde(state, idx, len(vraag["opties"])),
+        format_func=lambda j: vraag["opties"][j],
+        index=None,
+        key=f"quizkeuze_{stap['module']}_{idx}",
+        label_visibility="collapsed",
+    )
+    if not st.button("Bevestig antwoord", disabled=keuze is None):
         return
 
-    # Alle vragen beantwoord: score en samenvatting.
-    score = _score(stap, state)
-    st.markdown(f"### Je score: {score} van {len(vragen)}")
+    feedback = vraag["feedback_basis"].strip()
+    if llm.available():
+        try:
+            feedback = _genereer(_feedback_prompt(stap, vraag, keuze, profiel, velden))
+        except Exception:
+            pass
+    state["antwoorden"].append(keuze)
+    state["feedback"].append(feedback)
+    state["wacht_op_verder"] = True
+    st.rerun()
 
+
+def _toon_herhaling(stap, state, profiel, velden):
+    """Korte herhaling van de gemiste punten, alleen bij een lage score."""
     if state["samenvatting"] is None:
+        terugval = "\n\n".join(v["feedback_basis"].strip() for v in _gemist(stap, state))
+        tekst = None
         if llm.available():
             try:
-                state["samenvatting"] = _genereer(
-                    _samenvatting_prompt(stap, state, profiel, sectoren)
-                )
-                st.rerun()
+                tekst = _genereer(_samenvatting_prompt(stap, state, profiel, velden))
             except Exception:
-                state["samenvatting"] = stap["context"].strip()
-        else:
-            state["samenvatting"] = stap["context"].strip()
+                pass
+        state["samenvatting"] = tekst or terugval
+        if tekst:
+            # De gestreamde tekst staat er al; rerun voor een rustige eindweergave.
+            st.rerun()
+    st.markdown("**Nog even herhalen**")
+    personalize.toon_tekst(state["samenvatting"])
 
-    if state["samenvatting"] is not None:
-        personalize.toon_tekst(state["samenvatting"])
+
+def render_quiz(stap, profiel, velden):
+    """Quiz van stap 6; `stap` is ingevuld (titel, verhaal, einde)."""
+    state = _state(stap["module"])
+    vragen = stap["quiz"]
+    idx = len(state["antwoorden"])
+
+    _toon_beantwoord(stap, state)
+
+    if state["wacht_op_verder"]:
+        laatste = idx >= len(vragen)
+        if st.button("Bekijk je score" if laatste else "Volgende vraag"):
+            state["wacht_op_verder"] = False
+            st.rerun()
+        return
+
+    if idx < len(vragen):
+        _toon_vraag(stap, state, idx, profiel, velden)
+        return
+
+    # Alle vragen beantwoord: score, eventueel herhaling, en het einde.
+    behaald = score(stap, state)
+    st.markdown(f"### Je score: {behaald} van {len(vragen)}")
+    if behaald <= MAX_SCORE_HERHALING:
+        _toon_herhaling(stap, state, profiel, velden)
+
+    personalize.toon_verhaal(stap["einde"], "einde")
 
     if st.button("Quiz opnieuw maken"):
-        del st.session_state[f"quiz_{stap['module']}"]
-        for sleutel in [k for k in st.session_state if str(k).startswith(f"quizkeuze_{stap['module']}_")]:
-            del st.session_state[sleutel]
+        reset(stap["module"])
         st.rerun()

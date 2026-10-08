@@ -25,9 +25,22 @@ EXTRA_BODY = {
 REQUEST_TIMEOUT = 30
 MAX_RETRIES = 1
 
+# Niet-streamende calls (verhaalvelden) blokkeren de UI achter een spinner;
+# daarom korter en zonder retry, met de fallback als vangnet.
+COMPLETE_TIMEOUT = 15
+COMPLETE_RETRIES = 0
+
 
 class LLMError(Exception):
     """Een LLM-call die niet kon worden uitgevoerd; de app valt dan terug op de originele tekst."""
+
+
+def _berichten(system, messages):
+    """Systeemprompt plus berichten, met alleen de velden die de API kent
+    (UI-markeringen zoals `verborgen` gaan niet mee)."""
+    return [{"role": "system", "content": system}] + [
+        {"role": m["role"], "content": m["content"]} for m in messages
+    ]
 
 
 def api_key():
@@ -43,16 +56,40 @@ def available():
     return bool(api_key())
 
 
-def _client():
+def _client(timeout=REQUEST_TIMEOUT, max_retries=MAX_RETRIES):
     key = api_key()
     if not key:
         raise LLMError("Geen API-key geconfigureerd (OPEN_ROUTER_API).")
     return OpenAI(
         base_url=BASE_URL,
         api_key=key,
-        timeout=REQUEST_TIMEOUT,
-        max_retries=MAX_RETRIES,
+        timeout=timeout,
+        max_retries=max_retries,
     )
+
+
+def complete(system, messages, max_tokens=600, json_mode=False):
+    """Eén niet-streamende completion; geeft de volledige tekst terug.
+
+    Met `json_mode=True` wordt om een JSON-object gevraagd. Raise LLMError bij
+    elke fout of een leeg antwoord.
+    """
+    client = _client(timeout=COMPLETE_TIMEOUT, max_retries=COMPLETE_RETRIES)
+    extra = {"response_format": {"type": "json_object"}} if json_mode else {}
+    try:
+        response = client.chat.completions.create(
+            model=MODEL,
+            messages=_berichten(system, messages),
+            max_tokens=max_tokens,
+            extra_body=EXTRA_BODY,
+            **extra,
+        )
+        tekst = response.choices[0].message.content if response.choices else None
+    except Exception as exc:
+        raise LLMError(str(exc)) from exc
+    if not tekst or not tekst.strip():
+        raise LLMError("Leeg antwoord van het taalmodel.")
+    return tekst
 
 
 def stream(system, messages, max_tokens=1024):
@@ -66,7 +103,7 @@ def stream(system, messages, max_tokens=1024):
     try:
         response = client.chat.completions.create(
             model=MODEL,
-            messages=[{"role": "system", "content": system}] + messages,
+            messages=_berichten(system, messages),
             stream=True,
             max_tokens=max_tokens,
             extra_body=EXTRA_BODY,

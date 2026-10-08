@@ -10,6 +10,6 @@ Taak: schrijf feedback van twee tot vier zinnen volgens dit patroon.
   de kern van de uitleg, en maak de link met de praktijk van de gebruiker.
 - Bij een fout antwoord: corrigeer rustig zonder de gebruiker af te vallen,
   leg de kern van de uitleg eenvoudig uit, en geef een concreet voorbeeld dat
-  past bij de sector van de gebruiker.
+  past bij het werk van de gebruiker.
 Wijk inhoudelijk niet af van de kern van de uitleg.
 Zet het kernbegrip van je feedback in vet (Markdown).

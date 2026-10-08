@@ -7,12 +7,16 @@ Strikte regels voor deze stap:
 - Je past alleen toon, zinslengte en omkadering aan.
 - Voeg geen nieuwe voorbeelden toe; verwijs hooguit kort naar de context van
   de gebruiker in de openings- of slotzin.
+- Als de gebruiker aangaf niet te weten wat gevoelige data is: leg in
+  eenvoudige woorden uit wat persoonsgegevens zijn, met één voorbeeld uit het
+  werkveld van de gebruiker.
 
-Opmaak (Markdown, gericht op snel scannen):
-- Begin met één vetgedrukte kernzin die de essentie samenvat.
-- Zet de feiten daarna in 3 tot 5 korte bullets; per bullet het sleutelbegrip,
-  cijfer of de wetnaam in vet. De formulering van de feiten zelf blijft letterlijk.
-- Korte zinnen, geen lange alinea's.
+Opmaak (Markdown):
+- Boven deze tekst staat al een stukje verhaal. Begin met één zin die daarop
+  aansluit, zonder het verhaal te herhalen.
+- Schrijf daarna korte alinea's van twee à drie zinnen. Gebruik hoogstens drie
+  bullets, en alleen voor een opsomming.
+- Zet sleutelbegrippen in vet, hooguit één per alinea.
 - Sluit af met één korte slotzin op een eigen regel.
 
 Originele tekst:

@@ -1,14 +1,11 @@
-Taak: herschrijf de onderstaande verdiepingstekst van de stap "{titel}". Kies
-of kleur het voorbeeld zodat het relevant is voor de sector en rol van de
-gebruiker; gebruik daarvoor uitsluitend het sectormateriaal hierboven en de
-inhoud van de originele tekst. Alle feiten, cijfers, namen van zaken en
-uitspraken blijven letterlijk behouden.
+Taak: herschrijf de onderstaande tekst van de stap "{titel}". Boven deze tekst
+staat het verhaal van een recent incident. Leg de les van dat incident uit en
+maak de link met het werk van de gebruiker. Alle feiten over het incident en
+alle andere feiten blijven letterlijk behouden; voeg er geen toe.
 
-Opmaak (Markdown, gericht op snel scannen):
-- Begin met één vetgedrukte kernzin die de essentie van het voorbeeld geeft.
-- Werk de rest uit in 3 tot 5 korte bullets of heel korte alinea's; zet
-  sleutelbegrippen, cijfers en namen in vet.
-- Korte zinnen, geen lange alinea's.
+Opmaak (Markdown):
+- Begin met één zin die aansluit op het incident, zonder het te herhalen.
+- Korte alinea's van twee à drie zinnen, hoogstens drie bullets.
 - Sluit af met één korte slotzin op een eigen regel.
 
 Originele tekst:
