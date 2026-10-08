@@ -7,7 +7,8 @@
 categorie_zinnen:
   persoonsgegevens: >-
     Zodra iets naar een persoon te herleiden is, gaat het om persoonsgegevens,
-    en die vallen onder de AVG.
+    en die vallen onder de AVG, de Europese privacywet die je misschien beter
+    kent als GDPR.
   bijzondere_persoonsgegevens: >-
     Gegevens over gezondheid, afkomst, religie, politieke opvattingen,
     biometrie of seksuele geaardheid zijn bovendien extra beschermd: die
@@ -101,6 +102,11 @@ stappen:
 
     Wat er op het spel staat, is dus niet abstract: {inzet}.
   context: >
+    De AVG is de Algemene Verordening Gegevensbescherming: de Europese wet die
+    regelt hoe organisaties met persoonsgegevens mogen omgaan. Ze geldt sinds 25
+    mei 2018 in de hele Europese Unie. Je kent ze misschien beter onder haar
+    Engelse naam: de GDPR, de General Data Protection Regulation. AVG en GDPR
+    zijn dus dezelfde wet.
     De AVG noemt alles wat naar een persoon te herleiden is een persoonsgegeven.
     Dat is breder dan veel mensen denken: een naam, een e-mailadres of een
     IP-adres, maar ook een gezicht op een foto, een stem in een opname of een
