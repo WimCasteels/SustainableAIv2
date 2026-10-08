@@ -46,6 +46,9 @@ MET_SLOTTEKEN = ("aanleiding", "herkenbare_details")
 # of doorhaling.
 VERBODEN_TEKENS = set("{}<>*_`#[]$~")
 VERBODEN_PLEKWOORDEN = {"je", "jouw", "mijn", "ons", "onze"}
+# De betrokkene is iemand anders dan de gebruiker; het einde zegt
+# "krijgt niemand bericht: {betrokkene} niet, en jij ook niet".
+VERBODEN_BETROKKENEN = {"jij", "jijzelf", "jezelf", "je", "zelf", "ik", "mezelf", "u", "uzelf"}
 AANHALINGSTEKENS = "\"'“”‘’„«»"
 
 # Opties van de activeren-vraag waar de regels voor het einde naar verwijzen.
@@ -139,6 +142,10 @@ def valideer(velden, profiel):
         if any(_bevat_woord(velden["betrokkene"], d) for d in delen):
             return False
 
+    betrokkene = set(re.findall(r"\w+", velden["betrokkene"].lower()))
+    if betrokkene <= VERBODEN_BETROKKENEN:
+        return False
+
     plekwoorden = set(re.findall(r"\w+", velden["plek"].lower()))
     if plekwoorden & VERBODEN_PLEKWOORDEN:
         return False
@@ -202,8 +209,11 @@ def verhaal_hash(profiel):
 
 
 def _prompt(profiel):
+    # Per voorbeeld het werk als losse regel en daaronder alleen de velden, zodat
+    # het model niet de vorm {"werk": …, "velden": …} overneemt.
     voorbeelden = "\n".join(
-        json.dumps(v, ensure_ascii=False) for v in content.load_voorbeelden()
+        f"Werk: {v['werk']}\n{json.dumps(v['velden'], ensure_ascii=False)}"
+        for v in content.load_voorbeelden()
     )
     return content.load_prompt("verhaalvelden").format(
         werk=profiel.get("werk") or "onbekend",
@@ -218,7 +228,11 @@ def _parse_json(tekst):
     begin, einde = tekst.find("{"), tekst.rfind("}")
     if begin == -1 or einde <= begin:
         raise ValueError("Geen JSON-object in het antwoord.")
-    return json.loads(tekst[begin:einde + 1])
+    data = json.loads(tekst[begin:einde + 1])
+    # Soms verpakt het model de velden zoals in de voorbeelden: {"werk": …, "velden": {…}}.
+    if isinstance(data, dict) and isinstance(data.get("velden"), dict):
+        data = data["velden"]
+    return data
 
 
 def genereer(profiel):

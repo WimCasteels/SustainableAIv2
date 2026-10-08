@@ -49,6 +49,8 @@ def test_voorbeeld_en_fallback_zijn_geldig():
     _met(aanleiding="Zonder slotteken"),                            # geen punt
     _met(beeld="de foto van de wonde"),                             # begint niet met 'een '
     _met(plek="je bureau"),                                         # 'je' in plek
+    _met(betrokkene="jij"),                                         # gebruiker zelf
+    _met(betrokkene="jijzelf"),                                     # gebruiker zelf
     _met(moment=""),                                                # leeg
     _met(vraag=42),                                                 # geen string
 ])
@@ -103,6 +105,15 @@ def met_llm(monkeypatch):
             return antwoord
         monkeypatch.setattr(llm, "complete", complete)
     return zet
+
+
+def test_genereer_aanvaardt_velden_verpakt_zoals_de_voorbeelden(met_llm):
+    met_llm(json.dumps({"werk": "verpleegkundige", "velden": VOORBEELD}, ensure_ascii=False))
+    assert verhaal.genereer(PROFIEL) == VOORBEELD
+
+
+def test_betrokkene_met_je_is_wel_toegelaten():
+    assert verhaal.valideer(_met(betrokkene="je klasgenoot"), PROFIEL)
 
 
 def test_genereer_geldig_antwoord(met_llm):
